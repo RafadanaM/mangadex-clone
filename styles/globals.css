@@ -1,26 +1,94 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+
+    @font-face {
+        font-family: 'Spartan';
+        src: url("../public/fonts/Spartan-Regular.ttf") format("truetype");
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: 'Spartan';
+        src: url("../public/fonts/Spartan-Medium.ttf") format("truetype");
+        font-weight: 500;
+    }
+
+    @font-face {
+        font-family: 'Spartan';
+        src: url("../public/fonts/Spartan-SemiBold.ttf") format("truetype");
+        font-weight: 600;
+    }
+
+    @font-face {
+        font-family: 'Spartan';
+        src: url("../public/fonts/Spartan-Bold.ttf") format("truetype");
+        font-weight: 700;
+    }
+
+    :root {
+        /* primary */
+        --color-primary-400: 255 103 64;
+        --color-primary-500: 230 97 62;
+
+        /* neutral */
+        --color-neutral-100: 255 255 255;
+        --color-neutral-300: 230 230 230;
+
+
+        --color-neutral-400: 240 241 242;
+        --color-neutral-500: 180 185 190;
+        --color-neutral-800: 77 77 77;
+        --color-neutral-900: 36 36 36;
+    }
+
+    body,
+    html,
+    #__next {
+        @apply h-full flex flex-col flex-grow
+    }
+
+    html,
+    body {
+        @apply text-primary bg-white
+    }
+
+    ul,
+    li {
+        list-style-type: none;
+    }
+
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+@layer components {
 
-* {
-  box-sizing: border-box;
-}
+    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+    /* For IE, Edge and Firefox */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    .icon {
+        @apply w-10 h-10 text-icon flex-shrink-0 p-1
+    }
+
+    .icon-small {
+        @apply w-4 h-4 text-icon flex-shrink-0
+    }
+
+    .icon-menu {
+        @apply w-8 h-8 p-1 flex-shrink-0 text-icon
+    }
 }

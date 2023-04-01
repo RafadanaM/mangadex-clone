@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import LatestSection from "../components/home/latest/LatestSection";
-import RecentSection from "../components/home/recent/RecentSection";
+import LatestSection from "@Manga/components/sections/LatestSection";
+import RecentSection from "@Manga/components/sections/RecentSection";
 
 const Home: NextPage = () => {
   return (

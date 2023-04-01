@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;800;900&display=swap');
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 
 @layer base {
@@ -45,17 +47,23 @@
         --color-neutral-500: 180 185 190;
         --color-neutral-800: 77 77 77;
         --color-neutral-900: 36 36 36;
+
+        --color-status-blue: 0 201 245;
+        --color-status-green: 4 208 0;
+        --color-status-grey: 196 196 196;
+        --color-status-red: 255 64 64;
+        --color-status-yellow: 218 117 0;
     }
 
     body,
     html,
     #__next {
-        @apply h-full flex flex-col flex-grow
+        @apply h-full flex flex-col flex-grow;
     }
 
     html,
     body {
-        @apply text-primary bg-white
+        @apply text-black bg-white;
     }
 
     ul,

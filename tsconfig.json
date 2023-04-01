@@ -13,7 +13,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@Images/*": ["./public/images/*"],
+      "@Common/*": ["./common/*"],
+      "@Manga/*": ["./manga/*"],
+      "@Styles/*": ["./styles/*"],
+    
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

@@ -4,23 +4,29 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./common/**/*.{js,ts,jsx,tsx}",
+    "./manga/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    textColor: {
-      white: "rgb(var(--color-neutral-100) / <alpha-value>)",
-      primary: "rgb(var(--color-neutral-900) / <alpha-value>)",
-      icon: {
-        DEFAULT: "rgb(var(--color-neutral-800) / <alpha-value>)",
-      },
-    },
     colors: {
       transparent: "transparent",
       current: "currentColor",
+      white: "rgb(var(--color-neutral-100) / <alpha-value>)",
+      black: "rgb(var(--color-neutral-900) / <alpha-value>)",
+      icon: {
+        DEFAULT: "rgb(var(--color-neutral-800) / <alpha-value>)",
+      },
+      status: {
+        red: "rgb(var(--color-status-red) / <alpha-value>)",
+        blue: "rgb(var(--color-status-blue) / <alpha-value>)",
+        yellow: "rgb(var(--color-status-yellow) / <alpha-value>)",
+        green: "rgb(var(--color-status-green) / <alpha-value>)",
+        grey: "rgb(var(--color-status-grey) / <alpha-value>)",
+      },
       primary: {
         DEFAULT: "rgb(var(--color-primary-400) / <alpha-value>)",
       },
-      black: "rgb(var(--color-neutral-900) / <alpha-value>)",
+      secondary: "rgb(var(--color-neutral-400) / <alpha-value>)",
     },
     backgroundColor: {
       transparent: "transparent",

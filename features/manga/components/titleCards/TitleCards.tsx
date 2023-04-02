@@ -10,7 +10,6 @@ interface IMangaCards {
 
 const MangaCards = ({ data, refs }: IMangaCards) => {
   const isWrapped = useIsTagWrapped<HTMLDivElement>(refs);
-
   return (
     <div className="grid gap-2 mt-6">
       {data.map((title, idx) => {

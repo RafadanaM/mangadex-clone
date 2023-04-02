@@ -1,5 +1,5 @@
 import { createRef, useState } from "react";
-import { NextPage } from "next";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import FilterIcon from "@Images/icon/filter.svg";
 import IconButton from "@Common/components/button/IconButton";
 import Section from "@Common/components/layout/Section";
@@ -11,8 +11,11 @@ import MangaViewSelection from "@Manga/components/mangaViewSelect/MangaViewSelec
 import MangaCards from "@Manga/components/titleCards/TitleCards";
 import { sortData } from "@Manga/data/titles.data";
 import { mangaTitles } from "@Manga/data/manga.data";
+import { MangaTitle } from "@Manga/interfaces/manga.interfaces";
 
-const Titles: NextPage = () => {
+const Titles = ({
+  data,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [open, setOpen] = useState(false);
 
   const mangaTitlesRefs = mangaTitles.map(() =>
@@ -46,10 +49,22 @@ const Titles: NextPage = () => {
           <Button>asd</Button>
         </Modal>
 
-        <MangaCards data={mangaTitles} refs={mangaTitlesRefs} />
+        <MangaCards data={data} refs={mangaTitlesRefs} />
       </Section>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<{
+  data: MangaTitle[];
+}> = async () => {
+  const data = await Promise.resolve(mangaTitles);
+
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default Titles;

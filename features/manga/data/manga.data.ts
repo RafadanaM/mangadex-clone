@@ -88,6 +88,6 @@ export const mangaTitles: MangaTitle[] = [
     tags: ["sci-fi", "action", "schoollife", "police", "aliens"],
 
     descrpition:
-      "Gunji Akira, who has just started high school, has been chasing after his father's ghost by trying to become a police officer just like him. One day however, he has a surprise encounter with an alien while leaving school. And there begins the start of his fateful adventures with extraterrestrial life… \n Note: It runs in a seinen magazine and will not be BL. At most, just as Fujobait as any shounen sports manga.",
+      "The saucy cohabitation story of an android and an office lady who lives alone.",
   },
 ];

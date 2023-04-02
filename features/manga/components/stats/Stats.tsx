@@ -31,7 +31,7 @@ const Stats = ({ stats, className = "" }: IStat) => {
     }
 
     return (
-      <div className="flex items-center gap-1">
+      <div className="flex w-full items-center gap-1">
         {Icon}
         <span className=" text-sm">{convertToCompact(value)}</span>
       </div>

@@ -1,4 +1,4 @@
-import { Language } from "../../common/types/common.types";
+import { Language } from "@Common/types/common.types";
 import { MangaStatus } from "../types/manga.types";
 
 export interface LatestManga {

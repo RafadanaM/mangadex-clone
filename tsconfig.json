@@ -18,8 +18,9 @@
     "paths": {
       "@Images/*": ["./public/images/*"],
       "@Common/*": ["./common/*"],
-      "@Manga/*": ["./manga/*"],
+      "@Manga/*": ["./features/manga/*"],
       "@Styles/*": ["./styles/*"],
+  
     
     }
   },

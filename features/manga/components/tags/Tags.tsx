@@ -33,7 +33,7 @@ const Tags = forwardRef<HTMLDivElement | null, ITags>(function Tags(
       <button
         onClick={handleClickShowMore}
         className={`absolute bottom-0 right-1 text-xs font-bold text-primary ${
-          showMore ? "block" : "hidden"
+          !showMore ? "hidden" : ""
         }`}
       >
         MORE

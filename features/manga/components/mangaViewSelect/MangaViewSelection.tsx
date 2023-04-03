@@ -2,15 +2,31 @@ import IconButton from "@Common/components/button/IconButton";
 import { MouseEvent, useState } from "react";
 import { MangaViewSelectionType } from "../../types/manga.types";
 import { mangaViewSelectionData } from "../../data/manga.data";
+import { pick } from "@Common/utils/object.util";
 
 interface IMangaViewSelect {
   onSelectedChange?: (appearenceType: MangaViewSelectionType) => void;
   viewTypes?: MangaViewSelectionType[];
+  defaultView?: MangaViewSelectionType;
 }
 
-const MangaViewSelect = ({ onSelectedChange }: IMangaViewSelect) => {
+const defaultViewTypes: MangaViewSelectionType[] = ["list", "twoCol", "grid"];
+
+const MangaViewSelect = ({
+  onSelectedChange,
+  viewTypes = defaultViewTypes,
+  defaultView = viewTypes[0],
+}: IMangaViewSelect) => {
+  const selectedViewTypes =
+    viewTypes.length > 0
+      ? Array.from<MangaViewSelectionType>(new Set(viewTypes))
+      : defaultViewTypes;
+  const selectedDefaultView = viewTypes.includes(defaultView)
+    ? defaultView
+    : viewTypes[0];
+  const filteredObject = pick(mangaViewSelectionData, ...selectedViewTypes);
   const [selectedItem, setSelectedItem] = useState<MangaViewSelectionType>(
-    MangaViewSelectionType.list
+    MangaViewSelectionType[selectedDefaultView]
   );
 
   const updateSelectedItem =
@@ -26,9 +42,9 @@ const MangaViewSelect = ({ onSelectedChange }: IMangaViewSelect) => {
     <div className="flex relative items-center bg-secondary rounded-sm ml-auto">
       <div
         className="absolute bg-black w-12 h-12 rounded-sm transition-[left]"
-        style={{ left: mangaViewSelectionData[selectedItem].index * 48 }}
+        style={{ left: selectedViewTypes.indexOf(selectedItem) * 48 }}
       />
-      {Object.entries(mangaViewSelectionData).map(([k, v]) => (
+      {Object.entries(filteredObject).map(([k, v]) => (
         <IconButton
           key={k}
           Icon={v.icon}

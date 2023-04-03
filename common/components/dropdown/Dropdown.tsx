@@ -10,7 +10,7 @@ interface IDropdown {
 }
 
 const Dropdown = ({ title, items, defaultItem, onItemChange }: IDropdown) => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(
     defaultItem ?? (items && items.length > 0 ? items[0] : "")
   );
@@ -22,18 +22,18 @@ const Dropdown = ({ title, items, defaultItem, onItemChange }: IDropdown) => {
         onItemChange?.(nextItem);
       }
 
-      setOpen(false);
+      setIsOpen(false);
     };
 
   return (
     <div
       className="group relative min-w-[300px] select-none "
       tabIndex={0}
-      onBlur={() => setOpen(false)}
+      onBlur={() => setIsOpen(false)}
     >
       <div
         className="bg-secondary px-4 py-1 flex items-center justify-between cursor-pointer border rounded-t group-focus:border-primary border-transparent"
-        onClick={() => setOpen((prevState) => !prevState)}
+        onClick={() => setIsOpen((prevState) => !prevState)}
       >
         <div className="flex flex-col justify-between">
           <span className="text-xs mb-1">{title}</span>
@@ -42,21 +42,24 @@ const Dropdown = ({ title, items, defaultItem, onItemChange }: IDropdown) => {
 
         <DownIcon
           className={`icon-menu transition-transform 
-          ${open ? " transform rotate-180" : ""}`}
+          ${isOpen ? " transform rotate-180" : ""}`}
         />
       </div>
-      {open && (
-        <div className="absolute top-full bg-secondary w-full">
-          {items.map((item) => (
-            <DropdownItem
-              key={item}
-              text={item}
-              isSelected={item === selectedItem}
-              onClick={handleItemChange(item)}
-            />
-          ))}
-        </div>
-      )}
+
+      <div
+        className={`absolute top-full bg-secondary w-full z-10 ${
+          !isOpen ? "hidden" : ""
+        }`}
+      >
+        {items.map((item) => (
+          <DropdownItem
+            key={item}
+            text={item}
+            isSelected={item === selectedItem}
+            onClick={handleItemChange(item)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

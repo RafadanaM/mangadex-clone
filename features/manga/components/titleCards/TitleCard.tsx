@@ -1,29 +1,43 @@
 import { forwardRef } from "react";
-import styles from "@Styles/MangaCard.module.css";
-import Image from "next/image";
-import Link from "next/link";
+import styles from "@Styles/TitleCard.module.css";
 import BaseCard from "@Common/components/cards/BaseCard";
-import Flag from "@Common/components/icons/Flag";
 import Tags from "../tags/Tags";
 import { MangaTitle } from "../../interfaces/manga.interfaces";
 import Stats from "../stats/Stats";
 import Status from "../status/Status";
 import Title from "./Title";
 import Cover from "./Cover";
+import { MangaViewSelectionType } from "../../types/manga.types";
 
-interface IMangaCard {
+interface ITitleCard {
   data: MangaTitle;
   showMore: boolean;
+  selectedView: MangaViewSelectionType;
 }
 
-const MangaCard = forwardRef<HTMLDivElement | null, IMangaCard>(
-  function MangaCard({ data, showMore }, ref) {
+const TitleCard = forwardRef<HTMLDivElement | null, ITitleCard>(
+  function TitleCard({ data, showMore, selectedView }, ref) {
     const { language, author, descrpition, image, stats, status, tags, title } =
       data;
 
+    const cardType =
+      selectedView === "list"
+        ? {
+            card: styles.dense,
+            author: "sm:block",
+            status: "sm:inline",
+            description: "max-h-[4.3em]",
+          }
+        : {
+            card: styles.normal,
+            author: "hidden",
+            status: "hidden",
+            description: "h-[8.6em]",
+          };
+
     const Author = () => (
       <span
-        className={`${styles.author} hidden sm:block overflow-hidden overflow-ellipsis whitespace-nowrap`}
+        className={`${styles.author} hidden overflow-hidden overflow-ellipsis whitespace-nowrap ${cardType.author}`}
       >
         {author}
       </span>
@@ -31,7 +45,7 @@ const MangaCard = forwardRef<HTMLDivElement | null, IMangaCard>(
 
     const Description = () => (
       <div
-        className={`${styles.description} relative max-h-[4.3em] overflow-hidden text-sm leading-5 after:content-["_"] after:block after:absolute after:w-full after:bottom-0 after:right-0 after:h-5 after:bg-gradient-to-t after:from-secondary`}
+        className={`${styles.description} ${cardType.description} relative overflow-hidden text-sm leading-5 after:content-["_"] after:block after:absolute after:w-full after:bottom-0 after:right-0 after:h-5 after:bg-gradient-to-t after:from-secondary`}
       >
         <p>{descrpition}</p>
       </div>
@@ -39,7 +53,7 @@ const MangaCard = forwardRef<HTMLDivElement | null, IMangaCard>(
 
     return (
       <BaseCard
-        className={`grid gap-x-2 gap-y-1 p-2 rounded overflow-hidden ${styles.dense}`}
+        className={`grid gap-x-2 gap-y-1 p-2 rounded overflow-hidden ${cardType.card}`}
       >
         <Cover className={styles.cover} title={title} imageUrl={image} />
         <Title title={title} language={language} className={styles.title} />
@@ -47,7 +61,7 @@ const MangaCard = forwardRef<HTMLDivElement | null, IMangaCard>(
         <Stats stats={stats} className={styles.stats} />
         <Status
           status={status}
-          className={`${styles.status} hidden sm:inline`}
+          className={`${styles.status} hidden ${cardType.status}`}
         />
         <Tags
           ref={ref}
@@ -61,4 +75,4 @@ const MangaCard = forwardRef<HTMLDivElement | null, IMangaCard>(
   }
 );
 
-export default MangaCard;
+export default TitleCard;

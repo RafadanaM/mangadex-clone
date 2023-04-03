@@ -6,11 +6,11 @@ import { MangaTitle } from "../interfaces/manga.interfaces";
 
 export const mangaViewSelectionData: Record<
   MangaViewSelectionType,
-  { icon: any; index: number }
+  { icon: any }
 > = {
-  list: { index: 0, icon: ListIcon },
-  twoCol: { index: 1, icon: TwoColIcon },
-  grid: { index: 2, icon: GridIcon },
+  list: { icon: ListIcon },
+  twoCol: { icon: TwoColIcon },
+  grid: { icon: GridIcon },
 };
 
 export const mangaTitles: MangaTitle[] = [

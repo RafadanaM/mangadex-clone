@@ -16,7 +16,7 @@ export const mangaViewSelectionData: Record<
 export const mangaTitles: MangaTitle[] = [
   {
     id: "3843d4d1-ddde-430e-91d7-7f9a322b1116",
-    title: "Tokyo Aliens",
+    title: "I Became A College Professor At 14 Years Old, Because I'm A Genius",
     status: "completed",
     author: "Naoe",
     language: "EN",

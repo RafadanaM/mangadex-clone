@@ -15,7 +15,11 @@ const TitleCards = ({ data, refs, selectedView }: ITitleCards) => {
   return (
     <div
       className={`grid gap-2 mt-6 ${
-        selectedView === "twoCol" ? "md:grid-cols-2" : ""
+        selectedView === "twoCol"
+          ? "md:grid-cols-2"
+          : selectedView === "grid"
+          ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6"
+          : ""
       }`}
     >
       {data.map((title, idx) => {

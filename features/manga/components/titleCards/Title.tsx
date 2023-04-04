@@ -11,11 +11,9 @@ interface ITitle {
 function Title({ title, language, className = "" }: ITitle) {
   return (
     <Link href={"link to manga title"} passHref>
-      <a
-        className={`overflow-hidden overflow-ellipsis whitespace-nowrap ${className}`}
-      >
+      <a className={`font-bold ${className}`}>
         <Flag language={language} className="inline-block" />
-        <span className="ml-1 font-bold">{title}</span>
+        <span className="ml-1">{title}</span>
       </a>
     </Link>
   );

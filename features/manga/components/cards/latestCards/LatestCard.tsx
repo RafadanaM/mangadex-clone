@@ -5,7 +5,7 @@ import Flag from "@Common/components/icons/Flag";
 import Tooltip from "@Common/components/tooltip/Tooltip";
 import UsersIcon from "@Images/icon/users.svg";
 import OutsideIcon from "@Images/icon/outside.svg";
-import { LatestManga } from "../../interfaces/manga.interfaces";
+import { LatestManga } from "../../../interfaces/manga.interfaces";
 
 interface ILatestCard {
   data: LatestManga;

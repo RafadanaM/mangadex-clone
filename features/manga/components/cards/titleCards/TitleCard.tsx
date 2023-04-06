@@ -1,12 +1,12 @@
 import { forwardRef } from "react";
 import BaseCard from "@Common/components/cards/BaseCard";
-import Tags from "../tags/Tags";
-import { MangaTitle } from "../../interfaces/manga.interfaces";
-import Stats from "../stats/Stats";
-import Status from "../status/Status";
+import Tags from "../../tags/Tags";
+import { MangaTitle } from "../../../interfaces/manga.interfaces";
+import Stats from "../../stats/Stats";
+import Status from "../../status/Status";
 import Title from "./Title";
 import Cover from "./Cover";
-import { MangaViewSelectionType } from "../../types/manga.types";
+import { MangaViewSelectionType } from "../../../types/manga.types";
 
 interface ITitleCard {
   data: MangaTitle;

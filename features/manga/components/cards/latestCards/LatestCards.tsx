@@ -1,4 +1,4 @@
-import { LatestManga } from "../../interfaces/manga.interfaces";
+import { LatestManga } from "../../../interfaces/manga.interfaces";
 import BaseCard from "@Common/components/cards/BaseCard";
 import LatestCard from "./LatestCard";
 

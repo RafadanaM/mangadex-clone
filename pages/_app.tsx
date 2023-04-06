@@ -1,3 +1,4 @@
+import "swiper/css";
 import "@Styles/globals.css";
 import "@Styles/titleCard.css";
 import type { AppProps } from "next/app";

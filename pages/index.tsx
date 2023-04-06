@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import LatestSection from "@Manga/components/sections/LatestSection";
 import RecentSection from "@Manga/components/sections/RecentSection";
+import SeasonalSection from "../features/manga/components/sections/SeasonalSection";
 
 const Home: NextPage = () => {
   return (
@@ -10,6 +11,7 @@ const Home: NextPage = () => {
       </div>
 
       <LatestSection />
+      <SeasonalSection />
       <RecentSection />
     </div>
   );

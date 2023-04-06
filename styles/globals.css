@@ -1,102 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;800;900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
+  @font-face {
+    font-family: "Spartan";
+    src: url("../public/fonts/Spartan-Regular.ttf") format("truetype");
+    font-weight: 400;
+  }
 
-    @font-face {
-        font-family: 'Spartan';
-        src: url("../public/fonts/Spartan-Regular.ttf") format("truetype");
-        font-weight: 400;
-    }
+  @font-face {
+    font-family: "Spartan";
+    src: url("../public/fonts/Spartan-Medium.ttf") format("truetype");
+    font-weight: 500;
+  }
 
-    @font-face {
-        font-family: 'Spartan';
-        src: url("../public/fonts/Spartan-Medium.ttf") format("truetype");
-        font-weight: 500;
-    }
+  @font-face {
+    font-family: "Spartan";
+    src: url("../public/fonts/Spartan-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+  }
 
-    @font-face {
-        font-family: 'Spartan';
-        src: url("../public/fonts/Spartan-SemiBold.ttf") format("truetype");
-        font-weight: 600;
-    }
+  @font-face {
+    font-family: "Spartan";
+    src: url("../public/fonts/Spartan-Bold.ttf") format("truetype");
+    font-weight: 700;
+  }
 
-    @font-face {
-        font-family: 'Spartan';
-        src: url("../public/fonts/Spartan-Bold.ttf") format("truetype");
-        font-weight: 700;
-    }
+  :root {
+    /* primary */
+    --color-primary-400: 255 103 64;
+    --color-primary-500: 230 97 62;
 
-    :root {
-        /* primary */
-        --color-primary-400: 255 103 64;
-        --color-primary-500: 230 97 62;
+    /* neutral */
+    --color-neutral-100: 255 255 255;
+    --color-neutral-300: 230 230 230;
 
-        /* neutral */
-        --color-neutral-100: 255 255 255;
-        --color-neutral-300: 230 230 230;
+    --color-neutral-400: 240 241 242;
+    --color-neutral-500: 180 185 190;
+    --color-neutral-800: 77 77 77;
+    --color-neutral-900: 36 36 36;
 
+    --color-status-blue: 0 201 245;
+    --color-status-green: 4 208 0;
+    --color-status-grey: 196 196 196;
+    --color-status-red: 255 64 64;
+    --color-status-yellow: 218 117 0;
 
-        --color-neutral-400: 240 241 242;
-        --color-neutral-500: 180 185 190;
-        --color-neutral-800: 77 77 77;
-        --color-neutral-900: 36 36 36;
+    --swiper-theme-color: rgba(255, 103, 64, 1);
+  }
 
-        --color-status-blue: 0 201 245;
-        --color-status-green: 4 208 0;
-        --color-status-grey: 196 196 196;
-        --color-status-red: 255 64 64;
-        --color-status-yellow: 218 117 0;
-    }
+  body,
+  html,
+  #__next {
+    @apply h-full flex flex-col flex-grow;
+  }
 
-    body,
-    html,
-    #__next {
-        @apply h-full flex flex-col flex-grow;
-    }
+  html,
+  body {
+    @apply text-black bg-white;
+  }
 
-    html,
-    body {
-        @apply text-black bg-white;
-    }
-
-    ul,
-    li {
-        list-style-type: none;
-    }
-
+  ul,
+  li {
+    list-style-type: none;
+  }
 }
 
 @layer components {
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 
-    /* For Webkit-based browsers (Chrome, Safari and Opera) */
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-    }
+  /* For IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
 
-    /* For IE, Edge and Firefox */
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        /* IE and Edge */
-        scrollbar-width: none;
-        /* Firefox */
-    }
+  .bullets {
+    @apply -bottom-20 mx-auto;
+  }
 
-    .icon {
-        @apply w-10 h-10 text-icon flex-shrink-0 p-1
-    }
+  .icon {
+    @apply w-10 h-10 text-icon flex-shrink-0 p-1;
+  }
 
-    .icon-small {
-        @apply w-4 h-4 text-icon flex-shrink-0
-    }
+  .icon-small {
+    @apply w-4 h-4 text-icon flex-shrink-0;
+  }
 
-    .icon-menu {
-        @apply w-8 h-8 p-1 flex-shrink-0 text-icon
-    }
+  .icon-menu {
+    @apply h-8 w-8 p-1 flex-shrink-0 text-icon;
+  }
+
+  .icon-link {
+    @apply w-10 h-10 p-2 flex-shrink-0 text-icon;
+  }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { latestUpdates } from "../../data/home.data";
 import Section from "@Common/components/layout/Section";
-import LatestCards from "../latestCards/LatestCards";
+import LatestCards from "../cards/latestCards/LatestCards";
 
 const LatestSection = () => {
   return (

@@ -1,8 +1,8 @@
 import { RefObject } from "react";
-import { MangaTitle } from "../../interfaces/manga.interfaces";
-import useIsTagWrapped from "../../hooks/useIsTagWrapped";
+import { MangaTitle } from "../../../interfaces/manga.interfaces";
+import useIsTagWrapped from "../../../hooks/useIsTagWrapped";
 import TitleCard from "./TitleCard";
-import { MangaViewSelectionType } from "../../types/manga.types";
+import { MangaViewSelectionType } from "../../../types/manga.types";
 
 interface ITitleCards {
   data: MangaTitle[];

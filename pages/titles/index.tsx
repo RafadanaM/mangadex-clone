@@ -12,7 +12,7 @@ import { sortData } from "@Manga/data/titles.data";
 import { mangaTitles } from "@Manga/data/manga.data";
 import { MangaTitle } from "@Manga/interfaces/manga.interfaces";
 import { MangaViewSelectionType } from "@Manga/types/manga.types";
-import TitleCards from "@Manga/components/titleCards/TitleCards";
+import TitleCards from "@Manga/components/cards/titleCards/TitleCards";
 
 const Titles = ({
   data,

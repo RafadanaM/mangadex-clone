@@ -5,11 +5,14 @@ interface IIconLlink {
   href: string;
   className?: string;
 }
-
 const IconLink = ({ Icon, href, className }: IIconLlink) => {
   return (
     <Link href={href}>
-      <a className={className}>{Icon && <Icon className="icon-menu" />}</a>
+      <a
+        className={`hover:bg-shade hover:bg-opacity-20 rounded-full ${className}`}
+      >
+        {Icon && <Icon className="icon-link" />}
+      </a>
     </Link>
   );
 };

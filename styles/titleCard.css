@@ -76,8 +76,9 @@
     @apply w-full inline-block;
   }
 
-  .dense .title {
-    @apply overflow-ellipsis whitespace-nowrap;
+  .dense .title,
+  .dense .author {
+    @apply overflow-hidden overflow-ellipsis whitespace-nowrap;
   }
 
   .dense .status {

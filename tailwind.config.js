@@ -48,7 +48,6 @@ module.exports = {
         "fade-in": "fade-in 1s ease-in alternate",
         "blow-up": "blow-up 100ms linear forwards",
       },
-
       keyframes: {
         "fade-in": {
           "0%": { opacity: "0" },

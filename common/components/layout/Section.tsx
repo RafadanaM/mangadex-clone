@@ -5,13 +5,20 @@ import BackButton from "../button/BackButton";
 interface ISection {
   href?: string;
   title: string;
+  className?: string;
   children?: ReactNode;
   hasBack?: boolean;
 }
 
-const Section = ({ href, title, children, hasBack = false }: ISection) => {
+const Section = ({
+  href,
+  title,
+  children,
+  hasBack = false,
+  className = "",
+}: ISection) => {
   return (
-    <section className="mb-8 sm:mb-16">
+    <section className={`mb-8 sm:mb-16 ${className}`}>
       <div className="flex items-center mb-4 w-full">
         {hasBack && <BackButton />}
 

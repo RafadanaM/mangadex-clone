@@ -102,4 +102,12 @@
   .icon-link {
     @apply w-10 h-10 p-2 flex-shrink-0 text-icon;
   }
+
+  .section-banner {
+    @apply relative sm:static;
+  }
+
+  .section-banner > div:first-child {
+    @apply absolute sm:static z-20 left-0 sm:left-auto top-3 sm:top-auto;
+  }
 }

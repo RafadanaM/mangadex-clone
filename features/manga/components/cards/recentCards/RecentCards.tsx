@@ -23,7 +23,7 @@ const RecentCards = ({ data }: IRecentCards) => {
         el: ".recent-bullets",
       }}
       freeMode={true}
-      spaceBetween={10}
+      spaceBetween={20}
       slidesPerView={"auto"}
     >
       {data.map((manga, idx) => (

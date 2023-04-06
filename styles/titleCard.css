@@ -4,7 +4,7 @@
 
 @layer components {
   .title-card {
-    @apply grid gap-x-2 gap-y-1 p-2 rounded overflow-hidden;
+    @apply grid gap-x-2 gap-y-1 p-2;
   }
 
   .dense {

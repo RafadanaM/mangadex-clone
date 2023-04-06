@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // src: https://usehooks-ts.com/react-hook/use-media-query
-function useMediaQuery(query: string): boolean {
+function useMediaQuery(query: string): [boolean, boolean] {
   const getMatches = (query: string): boolean => {
     // Prevents SSR issues
     if (typeof window !== "undefined") {
@@ -10,7 +10,8 @@ function useMediaQuery(query: string): boolean {
     return false;
   };
 
-  const [matches, setMatches] = useState<boolean>(getMatches(query));
+  const [matches, setMatches] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true);
 
   function handleChange() {
     setMatches(getMatches(query));
@@ -23,6 +24,7 @@ function useMediaQuery(query: string): boolean {
     handleChange();
 
     matchMedia.addEventListener("change", handleChange);
+    setLoading(false);
 
     return () => {
       matchMedia.removeEventListener("change", handleChange);
@@ -30,7 +32,7 @@ function useMediaQuery(query: string): boolean {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);
 
-  return matches;
+  return [loading, matches];
 }
 
 export default useMediaQuery;

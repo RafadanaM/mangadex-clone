@@ -1,5 +1,5 @@
 import { forwardRef, useState } from "react";
-import Tag from "./Tag";
+import Tag from "../../tag/Tag";
 
 interface ITags {
   tags: string[];

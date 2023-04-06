@@ -1,11 +1,11 @@
 import { forwardRef } from "react";
 import BaseCard from "@Common/components/cards/BaseCard";
-import Tags from "../../tags/Tags";
-import { MangaTitle } from "../../../interfaces/manga.interfaces";
+import TitleTags from "./TitleTags";
 import Stats from "../../stats/Stats";
 import Status from "../../status/Status";
 import Title from "./Title";
 import Cover from "./Cover";
+import { MangaTitle } from "../../../interfaces/manga.interfaces";
 import { MangaViewSelectionType } from "../../../types/manga.types";
 
 interface ITitleCard {
@@ -33,7 +33,7 @@ const TitleCard = forwardRef<HTMLDivElement | null, ITitleCard>(
         <span className="author">{author}</span>
         <Stats stats={stats} className="stats" />
         <Status status={status} className="status" />
-        <Tags
+        <TitleTags
           ref={ref}
           tags={[...tags, ...tags]}
           showMore={showMore}

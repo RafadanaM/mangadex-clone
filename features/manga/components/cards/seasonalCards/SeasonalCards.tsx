@@ -13,7 +13,7 @@ interface ISeasonalCards {
 }
 
 const SeasonalCards = ({ data }: ISeasonalCards) => {
-  const isSmall = useMediaQuery("(max-width:40rem)");
+  const [isLoading, isSmall] = useMediaQuery("(max-width:40rem)");
 
   return (
     <Swiper
@@ -30,21 +30,23 @@ const SeasonalCards = ({ data }: ISeasonalCards) => {
       spaceBetween={20}
       slidesPerView={"auto"}
     >
-      {data.map((manga) => (
-        <SwiperSlide key={manga.id} className="w-fit">
-          {isSmall ? (
-            <RecentCard
-              data={{
-                image: manga.image,
-                language: manga.language,
-                title: manga.title,
-              }}
-            />
-          ) : (
-            <SeasonalCard data={manga} />
-          )}
-        </SwiperSlide>
-      ))}
+      {!isLoading
+        ? data.map((manga) => (
+            <SwiperSlide key={manga.id} className="w-fit">
+              {isSmall ? (
+                <RecentCard
+                  data={{
+                    image: manga.image,
+                    language: manga.language,
+                    title: manga.title,
+                  }}
+                />
+              ) : (
+                <SeasonalCard data={manga} />
+              )}
+            </SwiperSlide>
+          ))
+        : null}
 
       <div className="seasonal-bullets mt-2" />
     </Swiper>

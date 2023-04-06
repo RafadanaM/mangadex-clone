@@ -20,6 +20,15 @@ export type SeasonalManga = {
   language: Language;
 };
 
+export type PopularManga = {
+  id: string;
+  title: string;
+  description: string;
+  cover: string;
+  tags: string[];
+  authors: string[];
+};
+
 export type MangaStatus =
   | "ongoing"
   | "completed"

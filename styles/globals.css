@@ -108,6 +108,6 @@
   }
 
   .section-banner > div:first-child {
-    @apply absolute sm:static z-20 left-0 sm:left-auto top-3 sm:top-auto;
+    @apply absolute sm:static z-10 left-0 sm:left-auto top-3 sm:top-auto;
   }
 }

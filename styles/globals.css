@@ -3,6 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
 @layer base {
   @font-face {
@@ -50,6 +51,10 @@
     --color-status-yellow: 218 117 0;
 
     --swiper-theme-color: rgba(255, 103, 64, 1);
+
+    --nav-height: 4rem;
+    --banner-height: 13.5rem;
+    --banner-overlap: calc(var(--nav-height) + 0.5rem);
   }
 
   body,
@@ -88,19 +93,23 @@
   }
 
   .icon {
-    @apply w-10 h-10 text-icon flex-shrink-0 p-1;
+    @apply flex-shrink-0;
+  }
+
+  .icon-base {
+    @apply w-8 h-8;
+  }
+
+  .icon-medium {
+    @apply w-6 h-6;
   }
 
   .icon-small {
-    @apply w-4 h-4 text-icon flex-shrink-0;
-  }
-
-  .icon-menu {
-    @apply h-8 w-8 p-1 flex-shrink-0 text-icon;
+    @apply w-4 h-4;
   }
 
   .icon-link {
-    @apply w-10 h-10 p-2 flex-shrink-0 text-icon;
+    @apply w-10 h-10;
   }
 
   .section-banner {

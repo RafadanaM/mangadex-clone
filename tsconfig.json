@@ -19,6 +19,7 @@
       "@Images/*": ["./public/images/*"],
       "@Common/*": ["./common/*"],
       "@Manga/*": ["./features/manga/*"],
+      "@MangaDetail/*": ["./features/mangaDetail/*"],
       "@Styles/*": ["./styles/*"],
   
     

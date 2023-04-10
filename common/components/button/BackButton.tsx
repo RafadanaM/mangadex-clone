@@ -10,8 +10,9 @@ const BackButton = () => {
       className="mb-1 mr-4"
       onClick={() => router.back()}
       Icon={LeftArrowIcon}
-      type="menu"
-      hasShade
+      buttonType="menu"
+      theme="transparent"
+      hover
     />
   );
 };

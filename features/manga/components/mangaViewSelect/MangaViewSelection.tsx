@@ -47,9 +47,11 @@ const MangaViewSelect = ({
       {Object.entries(filteredObject).map(([k, v]) => (
         <IconButton
           key={k}
+          theme="transparent"
           Icon={v.icon}
+          round={false}
           className="w-12 h-12 z-10"
-          type="menu"
+          buttonType="menu"
           iconClassName={`transition-colors ${
             selectedItem === k ? "text-white" : ""
           }`}

@@ -18,12 +18,13 @@ const Layout = ({ children }: ILayout) => {
     <div className="flex flex-grow">
       <Sidebar isOpen={isSidebarOpen} updateOpen={handleUpdateSidebar} />
       <div
-        className={`w-full transition-all ${
+        className={`flex w-full flex-col transition-all ${
           isSidebarOpen ? "lg:ml-64" : "ml-0"
         }`}
       >
         <Navbar showIcon={!isSidebarOpen} onIconClick={handleUpdateSidebar} />
-        <Container className="flex flex-col flex-grow">{children}</Container>
+        {/* <Container className="flex flex-col flex-grow">{children}</Container> */}
+        {children}
       </div>
     </div>
   );

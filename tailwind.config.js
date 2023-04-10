@@ -25,25 +25,23 @@ module.exports = {
       },
       primary: {
         DEFAULT: "rgb(var(--color-primary-400) / <alpha-value>)",
-      },
-      secondary: "rgb(var(--color-neutral-400) / <alpha-value>)",
-    },
-    backgroundColor: {
-      transparent: "transparent",
-      current: "currentColor",
-      white: "rgb(var(--color-neutral-100) / <alpha-value>)",
-      primary: {
-        DEFAULT: "rgb(var(--color-primary-400) / <alpha-value>)",
         dark: "rgb(var(--color-primary-500) / <alpha-value>)",
       },
-      secondary: "rgb(var(--color-neutral-400) / <alpha-value>)",
+      secondary: {
+        DEFAULT: "rgb(var(--color-neutral-400) / <alpha-value>)",
+        dark: "rgb(var(--color-neutral-500) / <alpha-value>)",
+      },
       shade: {
         light: "rgb(var(--color-neutral-300) / <alpha-value>)",
         DEFAULT: "rgb(var(--color-neutral-500) / <alpha-value>)",
       },
-      black: "rgb(var(--color-neutral-900) / <alpha-value>)",
     },
+
     extend: {
+      height: {
+        nav: "var(--nav-height)",
+        banner: "var(--banner-height)",
+      },
       animation: {
         "fade-in": "fade-in 1s ease-in alternate",
         "blow-up": "blow-up 100ms linear forwards",
@@ -68,6 +66,9 @@ module.exports = {
       },
       maxWidth: {
         "md-mw": "1440px",
+      },
+      boxShadow: {
+        glow: " 0px 0px 24px -6px rgb(0 0 0 / 0.25)",
       },
     },
   },

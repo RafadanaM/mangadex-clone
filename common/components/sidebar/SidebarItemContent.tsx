@@ -28,7 +28,7 @@ const SidebarItemContent = ({
     <>
       {Icon && (
         <Icon
-          className={`icon-menu ${path === currPath ? "text-white" : ""}`}
+          className={`icon-medium ${path === currPath ? "text-white" : ""}`}
         />
       )}
       <span className="mx-2">{title}</span>

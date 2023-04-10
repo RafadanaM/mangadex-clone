@@ -48,7 +48,7 @@ const Sidebar = ({ updateOpen, isOpen }: ISidebar) => {
             <IconButton
               className="hidden lg:inline-block"
               Icon={CloseIcon}
-              hasShade
+              hover
               onClick={() => updateOpen(false)}
             />
           </div>

@@ -1,4 +1,5 @@
 {
     "css.format.enable": true,
-"[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+    "typescript.preferences.importModuleSpecifier": "shortest"
 }

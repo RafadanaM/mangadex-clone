@@ -13,6 +13,7 @@ import { mangaTitles } from "@Manga/data/manga.data";
 import { MangaTitle } from "@Manga/interfaces/manga.interfaces";
 import { MangaViewSelectionType } from "@Manga/types/manga.types";
 import TitleCards from "@Manga/components/cards/titleCards/TitleCards";
+import Container from "../../common/components/layout/Container";
 
 const Titles = ({
   data,
@@ -34,17 +35,18 @@ const Titles = ({
   };
 
   return (
-    <div className="py-2">
+    <Container>
       <Section hasBack title="Advanced Search">
         <div className="flex items-center mt-6">
           <Search />
           <IconButton
-            className="ml-4"
-            hasShade
-            type="menu"
+            theme="transparent"
+            className="ml-2 gap-2"
+            buttonType="menu"
+            hover
             Icon={FilterIcon}
             text="Filter"
-            textClassName="md:inline hidden"
+            textClassName="hidden md:inline"
             onClick={() => setOpen(true)}
           />
         </div>
@@ -61,7 +63,7 @@ const Titles = ({
           refs={mangaTitlesRefs}
         />
       </Section>
-    </div>
+    </Container>
   );
 };
 

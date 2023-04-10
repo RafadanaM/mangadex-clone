@@ -2,11 +2,11 @@ export type SidebarItemContentType = "main" | "sub";
 
 export type Language = "EN" | "IT" | "BR" | "ID";
 
-export type IconButtonType = "default" | "small" | "medium" | "menu";
+export type IconButtonType = "default" | "menu";
 
-export type ButtonTheme = "primary" | "secondary";
+export type ButtonTheme = "primary" | "secondary" | "light" | "transparent";
 
-export type ButtonSize = "large" | "normal" | "small" | "none6 ";
+export type ButtonCollapseBreakPoint = "md" | "lg" | "xl" | "2xl";
 
 // credits goes to https://twitter.com/WrocTypeScript/status/1306296710407352321
 export type TupleUnion<U extends string, R extends any[] = []> = {

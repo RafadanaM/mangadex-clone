@@ -5,6 +5,7 @@ import IconButton from "../button/IconButton";
 import Search from "../search/Search";
 import Container from "./Container";
 import Logo from "../icons/Logo";
+import { useRouter } from "next/router";
 
 interface INavbar {
   showIcon: boolean;
@@ -12,16 +13,27 @@ interface INavbar {
 }
 
 const Navbar = ({ showIcon, onIconClick }: INavbar) => {
+  const { pathname } = useRouter();
+
+  const shouldTransparent =
+    pathname === "/titles/[id]" || pathname === "/titles/[id]/[name]";
+
   return (
-    <div className="sticky top-0 py-2 bg-white z-20">
+    <div
+      className={`sticky h-nav top-0 py-2 bg-white ${
+        shouldTransparent ? "bg-transparent" : "bg-white"
+      } z-20`}
+    >
       <Container className="h-full flex items-center">
         {showIcon && (
           <>
             <IconButton
-              hasShade
+              buttonType="menu"
+              hover
+              theme={shouldTransparent ? "transparent" : "light"}
+              onClick={() => onIconClick(true)}
               className="mr-2"
               Icon={SideBarIcon}
-              onClick={() => onIconClick(true)}
             />
             <Logo />
           </>
@@ -31,7 +43,12 @@ const Navbar = ({ showIcon, onIconClick }: INavbar) => {
           <SearchIcon className="icon" />
         </button>
 
-        <IconButton className="ml-2 bg-secondary" Icon={PersonIcon} />
+        <IconButton
+          className="ml-2"
+          buttonType="menu"
+          hover={false}
+          Icon={PersonIcon}
+        />
       </Container>
     </div>
   );

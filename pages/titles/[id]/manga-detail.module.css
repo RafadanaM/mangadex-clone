@@ -1,0 +1,51 @@
+.bannerContainer {
+  height: calc(var(--banner-height) + var(--banner-overlap));
+  top: calc(calc(var(--nav-height) + 0.5rem) * -1);
+  @apply w-auto absolute left-0 right-0;
+}
+
+.detailLayout {
+  @apply grid relative gap-4 w-full;
+}
+
+.detailArea {
+  grid-template-areas:
+    "pl cover info pr"
+    "pl cover actions pr"
+    "pl cover tags pr"
+    "pl cover stats pr"
+    "pl description description pr"
+    "pl content content pr";
+
+  grid-template-columns: 1fr 200px minmax(0, calc(1240px - 4rem)) 1fr;
+}
+
+.cover {
+  @apply relative;
+  grid-area: cover;
+}
+
+.info {
+  grid-area: info;
+  text-shadow: 0 0 3px theme(colors.black);
+}
+
+.actions {
+  grid-area: actions;
+}
+
+.tags {
+  grid-area: tags;
+}
+
+.stats {
+  grid-area: stats;
+}
+
+.description {
+  grid-area: description;
+}
+
+.content {
+  grid-area: content;
+}

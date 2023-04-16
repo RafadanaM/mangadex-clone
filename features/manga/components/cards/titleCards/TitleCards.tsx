@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { RefObject, createRef } from "react";
 import { MangaTitle } from "../../../interfaces/manga.interfaces";
 import useIsTagWrapped from "../../../hooks/useIsTagWrapped";
 import TitleCard from "./TitleCard";
@@ -6,12 +6,12 @@ import { MangaViewSelectionType } from "../../../types/manga.types";
 
 interface ITitleCards {
   data: MangaTitle[];
-  refs: RefObject<HTMLDivElement | null>[];
   selectedView: MangaViewSelectionType;
 }
 
-const TitleCards = ({ data, refs, selectedView }: ITitleCards) => {
-  const isWrapped = useIsTagWrapped<HTMLDivElement>(refs);
+const TitleCards = ({ data, selectedView }: ITitleCards) => {
+  const mangaTitlesRefs = data.map(() => createRef<HTMLDivElement | null>());
+  const isWrapped = useIsTagWrapped<HTMLDivElement>(mangaTitlesRefs);
   return (
     <div
       className={`grid gap-2 mt-6 ${
@@ -25,7 +25,7 @@ const TitleCards = ({ data, refs, selectedView }: ITitleCards) => {
       {data.map((title, idx) => {
         return (
           <TitleCard
-            ref={refs[idx]}
+            ref={mangaTitlesRefs[idx]}
             key={idx}
             data={title}
             showMore={isWrapped[idx]}

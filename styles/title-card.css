@@ -19,10 +19,10 @@
 
   .normal {
     grid-template-areas:
-      "cover title"
-      "cover stats"
-      "cover tags"
-      "cover description";
+      "cover title title"
+      "cover stats status"
+      "cover tags tags"
+      "cover description description";
 
     grid-template-columns: min(25%, 150px) 1fr;
     grid-template-rows: auto auto auto 1fr;
@@ -87,7 +87,6 @@
 
   .normal .author,
   .cover .author,
-  .normal .status,
   .cover .status,
   .cover-only .stats,
   .cover-only .tags,

@@ -22,10 +22,6 @@ const Titles = ({
   const [selectedView, setSelectedView] =
     useState<MangaViewSelectionType>("list");
 
-  const mangaTitlesRefs = mangaTitles.map(() =>
-    createRef<HTMLDivElement | null>()
-  );
-
   const updateModalOpen = (newState: boolean) => {
     setOpen(newState);
   };
@@ -57,11 +53,7 @@ const Titles = ({
         <Modal open={open} updateOpen={updateModalOpen}>
           <Button>asd</Button>
         </Modal>
-        <TitleCards
-          selectedView={selectedView}
-          data={data}
-          refs={mangaTitlesRefs}
-        />
+        <TitleCards selectedView={selectedView} data={data} />
       </Section>
     </Container>
   );

@@ -47,7 +47,7 @@ const MangaViewSelect = ({
       {Object.entries(filteredObject).map(([k, v]) => (
         <IconButton
           key={k}
-          theme="transparent"
+          theme="light"
           Icon={v.icon}
           round={false}
           className="w-12 h-12 z-10"

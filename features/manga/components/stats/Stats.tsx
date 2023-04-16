@@ -18,12 +18,12 @@ const Stats = ({ stats, type = "card", className = "" }: IStat) => {
       ? {
           text: "text-sm",
           icon: "w-3.5 h-3.5",
-          gap: "gap-1",
+          container: "gap-1 justify-between",
         }
       : {
           text: "text-base",
           icon: "w-4 h-4",
-          gap: "gap-2",
+          container: "gap-2",
         };
 
   function renderStat(key: keyof MangaTitleStats) {
@@ -64,9 +64,7 @@ const Stats = ({ stats, type = "card", className = "" }: IStat) => {
   }
 
   return (
-    <div
-      className={`flex items-center justify-start ${typeStyle.gap} ${className}`}
-    >
+    <div className={`flex items-center ${typeStyle.container} ${className}`}>
       {renderStat("rating")}
       {renderStat("followers")}
       {type === "card" ? renderStat("views") : renderStat("comments")}

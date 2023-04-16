@@ -20,7 +20,7 @@ const Status = ({ status, type = "card", className = "" }: IStatus) => {
       : "fill-status-grey";
   return (
     <span
-      className={`px-2 py-0.5 rounded ${
+      className={`px-1.5 py-0.5 rounded inline-flex items-center ${
         type === "card" ? "bg-shade-light" : ""
       }  ${className}`}
     >

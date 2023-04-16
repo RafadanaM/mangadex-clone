@@ -11,7 +11,7 @@ const BackButton = () => {
       onClick={() => router.back()}
       Icon={LeftArrowIcon}
       buttonType="menu"
-      theme="transparent"
+      theme="light"
       hover
     />
   );

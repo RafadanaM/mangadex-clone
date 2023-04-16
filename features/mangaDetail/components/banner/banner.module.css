@@ -1,0 +1,5 @@
+.bannerContainer {
+  height: calc(var(--banner-height) + var(--banner-overlap));
+  top: calc(calc(var(--nav-height) + 0.5rem) * -1);
+  @apply w-auto absolute left-0 right-0;
+}

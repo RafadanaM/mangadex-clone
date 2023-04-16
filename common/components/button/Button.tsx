@@ -1,5 +1,5 @@
+import { ButtonTheme } from "@Common/types/button.type";
 import { ButtonHTMLAttributes } from "react";
-import { ButtonTheme } from "../../types/common.types";
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;

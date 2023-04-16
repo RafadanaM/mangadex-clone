@@ -55,6 +55,8 @@
     --nav-height: 4rem;
     --banner-height: 13.5rem;
     --banner-overlap: calc(var(--nav-height) + 0.5rem);
+
+    --tab-nav-padding: 0.25rem;
   }
 
   body,

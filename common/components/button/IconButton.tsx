@@ -1,7 +1,7 @@
 import {
   ButtonCollapseBreakPoint,
   IconButtonType,
-} from "../../types/common.types";
+} from "@Common/types/button.type";
 import { getButtonCollapseStyle } from "../../utils/button.util";
 import Button, { IButton } from "./Button";
 

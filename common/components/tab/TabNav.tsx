@@ -17,7 +17,7 @@ const TabNav = forwardRef<HTMLLIElement, ITabNav>(function TabNav(
   return (
     <li
       ref={ref}
-      className={`px-2 py-1 z-10 transition-colors font-bold ${
+      className={`px-2 py-1 z-10 transition-colors font-bold flex-shrink-0 ${
         active ? "text-white" : "text-secondary-dark"
       }`}
     >

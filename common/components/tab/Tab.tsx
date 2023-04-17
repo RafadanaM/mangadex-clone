@@ -1,63 +1,58 @@
-import {
-  ReactElement,
-  createRef,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
-import { ITabItem } from "./TabiItem";
-import TabNav from "./TabNav";
+import { useEffect, useState } from "react";
+
 import { useRouter } from "next/router";
 import TabNavs from "./TabNavs";
 
 interface ITab {
-  children: ReactElement<ITabItem>[];
   defaultTab?: string;
+  tabs: Map<string, string>;
 }
 
-const Tab = ({ children, defaultTab }: ITab) => {
+const Tab = ({ defaultTab, tabs }: ITab) => {
   const { replace, query, isReady } = useRouter();
-
-  const [selectedTab, setSelectedTab] = useState<string>("");
+  const [selectedTab, setSelectedTab] = useState("");
 
   useEffect(() => {
     if (!isReady) return;
 
     const currentTab = query.tab;
+    const isDefaultTabValid = defaultTab ? tabs.has(defaultTab) : false;
+    const selectedDefaultTab = isDefaultTabValid
+      ? defaultTab
+      : tabs.keys().next().value ?? "";
 
-    if (currentTab === undefined) {
-      const chosenTab = children.at(0);
-      if (chosenTab !== undefined) {
-        setSelectedTab(chosenTab.props.id);
-      } else {
-        setSelectedTab("");
-      }
-    } else if (
-      typeof currentTab === "string" &&
-      children.map((child) => child.props.id).includes(currentTab)
-    ) {
-      setSelectedTab(currentTab);
-    } else {
-      let newQuery = query;
-      if (
-        defaultTab === undefined ||
-        (defaultTab &&
-          !children.map((child) => child.props.id).includes(defaultTab))
-      ) {
-        delete newQuery.tab;
-      } else {
-        newQuery = { ...newQuery, tab: defaultTab };
-      }
-
-      replace({ query: newQuery }, undefined, { shallow: true });
+    // if tab is string[] remove the tab
+    if (Array.isArray(currentTab)) {
+      delete query.tab;
+      replace({ query: query });
+      return;
     }
-  }, [query, isReady, defaultTab, children, replace]);
+    // if undefined show the defaultTab
+    if (currentTab === undefined) {
+      setSelectedTab(selectedDefaultTab);
+      return;
+    }
+
+    // if string check if its a valid tab
+    if (typeof currentTab === "string") {
+      if (tabs.has(currentTab)) {
+        setSelectedTab(currentTab);
+      } else {
+        let newQuery = query;
+        if (selectedDefaultTab === "") {
+          delete newQuery.tab;
+        } else {
+          newQuery = { ...newQuery, tab: selectedDefaultTab };
+        }
+        // if not replace to the default Tab
+        replace({ query: newQuery });
+      }
+    }
+  }, [defaultTab, isReady, query, replace, tabs]);
 
   return (
     <div>
-      <TabNavs items={children} selectedTab={selectedTab} />
-      {children.filter((child) => child.props.id === selectedTab)}
+      <TabNavs tabs={tabs} selectedTab={selectedTab} defaultTab={defaultTab} />
     </div>
   );
 };

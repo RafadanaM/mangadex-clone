@@ -5,8 +5,6 @@ import Actions from "@MangaDetail/components/actions/Actions";
 import Tags from "@MangaDetail/components/tags/Tags";
 import Stats from "@Manga/components/stats/Stats";
 import Banner from "@MangaDetail/components/banner/Banner";
-import Tab from "@Common/components/tab/Tab";
-import TabiItem from "@Common/components/tab/TabiItem";
 
 const MangaDetail = () => {
   return (
@@ -48,16 +46,7 @@ const MangaDetail = () => {
             {`Gin no Spoon manga's story centers around Ritsu, a high school boy who, along with his younger brother Shirabe and sister Kanade, were raised by their single mother Kyoko. When their mother is hospitalized due to sickness, Ritsu begins to take care of his younger siblings and cook food for them, slowly entering the world of cooking. Things become more complicated when Ritsu finds out a shocking fact: that he is an adopted child.`}
           </p>
         </div>
-        <div className={`${styles.content}`}>
-          <Tab defaultTab="tab1">
-            <TabiItem id="tab1" title="Title 1">
-              Tab 1
-            </TabiItem>
-            <TabiItem id="tab2" title="Title Mantap">
-              Mantap
-            </TabiItem>
-          </Tab>
-        </div>
+        <div className={`${styles.content}`}></div>
       </div>
     </Container>
   );

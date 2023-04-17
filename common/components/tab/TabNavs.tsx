@@ -1,30 +1,35 @@
-import { ReactElement, createRef, useEffect, useMemo, useRef } from "react";
-import { ITabItem } from "./TabiItem";
+import { RefObject, createRef, useEffect, useMemo, useRef } from "react";
 import TabNav from "./TabNav";
-
 interface ITabNavs {
-  items: ReactElement<ITabItem>[];
   selectedTab: string;
+  defaultTab?: string;
+  tabs: Map<string, string>;
 }
 
-const TabNavs = ({ items, selectedTab }: ITabNavs) => {
+const TabNavs = ({ selectedTab, tabs, defaultTab }: ITabNavs) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef<HTMLElement>(null);
 
-  const tabNavs = useMemo(
-    () =>
-      items.map((child) => ({
-        id: child.props.id,
-        title: child.props.title,
+  const tabNavs = useMemo(() => {
+    const arr: {
+      id: string;
+      title: string;
+      ref: RefObject<HTMLLIElement>;
+    }[] = [];
+    tabs.forEach((title, id) => {
+      arr.push({
+        id,
+        title,
         ref: createRef<HTMLLIElement>(),
-      })),
-    [items]
-  );
+      });
+    });
+
+    return arr;
+  }, [tabs]);
 
   useEffect(() => {
-    const selectedChild = tabNavs
-      .filter((child) => child.id === selectedTab)
-      .at(0);
+    const tab = selectedTab !== "" ? selectedTab : defaultTab;
+    const selectedChild = tabNavs.filter((child) => child.id === tab).at(0);
 
     if (
       selectedChild !== undefined &&
@@ -38,17 +43,23 @@ const TabNavs = ({ items, selectedTab }: ITabNavs) => {
       }px`;
       trackRef.current.style.width = `${childRect.width}px`;
     }
-  }, [tabNavs, selectedTab]);
+  }, [tabNavs, selectedTab, defaultTab]);
 
   return (
-    <nav ref={parentRef}>
+    <nav ref={parentRef} className="overflow-auto">
       <ul className="inline-flex relative items-center gap-2 bg-secondary p-1 rounded-sm">
         <div
           ref={trackRef}
           className="absolute transition-all shadow-md left-1 bottom-1 top-1 rounded-sm bg-black"
         />
+
         {tabNavs.map(({ id, title, ref }, idx) => (
-          <TabNav ref={ref} id={id} key={idx} active={selectedTab === id}>
+          <TabNav
+            ref={ref}
+            id={id}
+            key={idx}
+            active={selectedTab === "" ? defaultTab === id : selectedTab === id}
+          >
             {title}
           </TabNav>
         ))}

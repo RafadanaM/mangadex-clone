@@ -12,6 +12,9 @@ interface ITitleCards {
 const TitleCards = ({ data, selectedView }: ITitleCards) => {
   const mangaTitlesRefs = data.map(() => createRef<HTMLDivElement | null>());
   const isWrapped = useIsTagWrapped<HTMLDivElement>(mangaTitlesRefs);
+  if (data.length === 0) {
+    return <div className="bg-secondary text-center py-4">No Manga</div>;
+  }
   return (
     <div
       className={`grid gap-2 mt-6 ${

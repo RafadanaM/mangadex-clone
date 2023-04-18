@@ -1,0 +1,21 @@
+.chapterCard {
+  @apply grid gap-y-1 p-1;
+}
+
+.chaptersOnly {
+  grid-template-areas:
+    "title"
+    "chapters";
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.withCover {
+}
+
+.chapters {
+  grid-area: chapters;
+}
+
+.title {
+  grid-area: title;
+}

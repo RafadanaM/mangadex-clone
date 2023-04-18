@@ -13,7 +13,7 @@ interface ISeasonalCards {
 }
 
 const SeasonalCards = ({ data }: ISeasonalCards) => {
-  const [isLoading, isSmall] = useMediaQuery("(max-width:40rem)");
+  const [isLoading, isSmall] = useMediaQuery("(max-width:640px)");
 
   return (
     <Swiper

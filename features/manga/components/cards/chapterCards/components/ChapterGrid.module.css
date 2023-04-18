@@ -1,0 +1,50 @@
+.chapterGrid {
+  grid-template-areas:
+    "title-comments"
+    "group-views"
+    "uploader-time";
+  @apply grid gap-x-2 gap-y-1;
+}
+
+.title {
+  grid-area: title;
+}
+
+.time {
+  grid-area: time;
+}
+
+.views {
+  grid-area: views;
+}
+
+.group {
+  grid-area: group;
+}
+
+.uploader {
+  grid-area: uploader;
+}
+
+.comments {
+  grid-area: comments;
+}
+
+.titleComments {
+  grid-area: title-comments;
+}
+.groupViews {
+  grid-area: group-views;
+}
+.uploaderTime {
+  grid-area: uploader-time;
+}
+
+@media (min-width: theme(screens.sm)) {
+  .chapterGrid {
+    grid-template-areas:
+      "title time views"
+      "group uploader comments";
+    grid-template-columns: minmax(0, 1fr) 150px 60px;
+  }
+}

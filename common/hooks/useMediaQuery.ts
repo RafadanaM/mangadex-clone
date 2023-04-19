@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 // src: https://usehooks-ts.com/react-hook/use-media-query
 function useMediaQuery(query: string): [boolean, boolean] {

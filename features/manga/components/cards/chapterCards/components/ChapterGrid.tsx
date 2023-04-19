@@ -15,39 +15,40 @@ import ChapterViews from "./ChapterViews";
 import ChapterUploader from "./ChapterUploader";
 import ChapterComments from "./ChapterComments";
 
-const ChapterGrid = () => {
-  const [isLoading, isLarge] = useMediaQuery("(min-width:640px)");
+interface IChapterGrid {
+  size: "default" | "small" | "medium";
+}
+
+const ChapterGrid = ({ size }: IChapterGrid) => {
   return (
     <div
       className={`${styles.chapterGrid} text-xs md:text-sm px-2 py-1 border-l-2 border-l-status-blue overflow-hidden border-b border-b-shade-light last:border-b-0`}
     >
-      {!isLoading ? (
-        isLarge ? (
-          <>
+      {size === "medium" || size === "small" ? (
+        <>
+          <ChapterTitle />
+          <ChapterTime />
+          <ChapterViews />
+          <ChapterGroup />
+          <ChapterUploader />
+          <ChapterComments />
+        </>
+      ) : (
+        <>
+          <div className={`${styles.titleComments} flex justify-between`}>
             <ChapterTitle />
-            <ChapterTime />
-            <ChapterViews />
-            <ChapterGroup />
-            <ChapterUploader />
             <ChapterComments />
-          </>
-        ) : (
-          <>
-            <div className={`${styles.titleComments} flex justify-between`}>
-              <ChapterTitle />
-              <ChapterComments />
-            </div>
-            <div className={`${styles.groupViews} flex justify-between`}>
-              <ChapterGroup />
-              <ChapterViews />
-            </div>
-            <div className={`${styles.uploaderTime} flex justify-between`}>
-              <ChapterUploader />
-              <ChapterTime />
-            </div>
-          </>
-        )
-      ) : null}
+          </div>
+          <div className={`${styles.groupViews} flex justify-between`}>
+            <ChapterGroup />
+            <ChapterViews />
+          </div>
+          <div className={`${styles.uploaderTime} flex justify-between`}>
+            <ChapterUploader />
+            <ChapterTime />
+          </div>
+        </>
+      )}
     </div>
   );
 };

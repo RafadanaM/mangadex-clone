@@ -38,7 +38,7 @@ const Button = ({
 
   return (
     <button
-      className={`font-medium relative whitespace-nowrap ${roundStyle} ${buttonTheme} ${beforeItem} ${className} p-3 ${padding}`}
+      className={`font-medium relative whitespace-nowrap ${roundStyle} ${buttonTheme} ${beforeItem} ${className} ${padding}`}
       {...props}
     >
       {children}

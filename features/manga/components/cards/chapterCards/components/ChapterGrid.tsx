@@ -1,51 +1,53 @@
 import styles from "./ChapterGrid.module.css";
-import Flag from "@Common/components/icons/Flag";
-import Icon from "@Common/components/icons/Icon";
-import IconText from "@Common/components/icons/IconText";
-import EyeIcon from "@Images/icon/eye.svg";
-import ClockIcon from "@Images/icon/clock.svg";
-import GroupIcon from "@Images/icon/users.svg";
-import UserIcon from "@Images/icon/users.svg";
-import CommentIcon from "@Images/icon/message-square.svg";
-import useMediaQuery from "@Common/hooks/useMediaQuery";
 import ChapterTitle from "./ChapterTitle";
 import ChapterTime from "./ChapterTime";
 import ChapterGroup from "./ChapterGroup";
 import ChapterViews from "./ChapterViews";
 import ChapterUploader from "./ChapterUploader";
 import ChapterComments from "./ChapterComments";
+import { Chapter } from "@Manga/types/manga.types";
 
 interface IChapterGrid {
   size: "default" | "small" | "medium";
+  chapter: Chapter;
 }
 
-const ChapterGrid = ({ size }: IChapterGrid) => {
+const ChapterGrid = ({ size, chapter }: IChapterGrid) => {
   return (
     <div
-      className={`${styles.chapterGrid} text-xs md:text-sm px-2 py-1 border-l-2 border-l-status-blue overflow-hidden border-b border-b-shade-light last:border-b-0`}
+      className={`${styles.chapterGrid} text-xs md:text-sm px-2 py-1 border-l-2 border-l-status-blue overflow-hidden border-b border-b-shade-light last:border-b-0 hover:bg-secondary-dark cursor-pointer`}
     >
       {size === "medium" || size === "small" ? (
         <>
-          <ChapterTitle />
-          <ChapterTime />
+          <ChapterTitle
+            id={chapter.id}
+            title={chapter.title}
+            language={chapter.language}
+          />
+          <ChapterTime uploadTime={chapter.uploadTime} />
           <ChapterViews />
-          <ChapterGroup />
-          <ChapterUploader />
+          <ChapterGroup group={chapter.group} />
+          <ChapterUploader uploader={chapter.uploader} />
           <ChapterComments />
         </>
       ) : (
         <>
           <div className={`${styles.titleComments} flex justify-between`}>
-            <ChapterTitle />
+            <ChapterTitle
+              id={chapter.id}
+              title={chapter.title}
+              language={chapter.language}
+            />
             <ChapterComments />
           </div>
           <div className={`${styles.groupViews} flex justify-between`}>
-            <ChapterGroup />
+            <ChapterGroup group={chapter.group} />
             <ChapterViews />
           </div>
           <div className={`${styles.uploaderTime} flex justify-between`}>
-            <ChapterUploader />
-            <ChapterTime />
+            <ChapterUploader uploader={chapter.uploader} />
+
+            <ChapterTime uploadTime={chapter.uploadTime} />
           </div>
         </>
       )}

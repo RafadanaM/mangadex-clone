@@ -1,16 +1,15 @@
-import Container from "@Common/components/layout/Container";
-import Section from "@Common/components/layout/Section";
-import useMediaQuery from "@Common/hooks/useMediaQuery";
-import ChapterCard from "@Manga/components/cards/chapterCards/ChapterCard";
-import MangaViewSelect from "@Manga/components/mangaViewSelect/MangaViewSelection";
-import { MangaViewSelectionType } from "@Manga/types/manga.types";
-import type { NextPage } from "next";
 import { useState } from "react";
+import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import Section from "@Common/components/layout/Section";
+import Container from "@Common/components/layout/Container";
+import MangaViewSelect from "@Manga/components/mangaViewSelect/MangaViewSelection";
+import { mangaChapters } from "@Manga/data/manga.data";
+import { MangaChapter, MangaViewSelectionType } from "@Manga/types/manga.types";
+import ChaptersCard from "@Manga/components/cards/chapterCards/ChaptersCard";
 
-const Updates: NextPage = () => {
-  const [isLoadingSmall, isSmall] = useMediaQuery("(min-width:640px)");
-  const [isLoadingMedium, isMedium] = useMediaQuery("(min-width:768px)");
-
+const Updates = ({
+  data,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [selectedView, setSelectedView] =
     useState<Extract<MangaViewSelectionType, "list" | "twoCol">>("list");
 
@@ -28,17 +27,22 @@ const Updates: NextPage = () => {
             viewTypes={["list", "twoCol"]}
           />
         </div>
-        <div>
-          {!isLoadingSmall ? (
-            <ChapterCard
-              type={selectedView}
-              size={isMedium ? "medium" : isSmall ? "small" : "default"}
-            />
-          ) : null}
-        </div>
+        <ChaptersCard data={data} type={selectedView} />
       </Section>
     </Container>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<{
+  data: MangaChapter[];
+}> = async () => {
+  const data = await Promise.resolve(mangaChapters);
+
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default Updates;

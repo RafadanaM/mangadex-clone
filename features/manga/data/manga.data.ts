@@ -1,7 +1,11 @@
 import ListIcon from "@Images/icon/list.svg";
 import TwoColIcon from "@Images/icon/two-col.svg";
 import GridIcon from "@Images/icon/grid.svg";
-import { MangaViewSelectionType, PopularManga } from "../types/manga.types";
+import {
+  MangaChapter,
+  MangaViewSelectionType,
+  PopularManga,
+} from "../types/manga.types";
 import { MangaTitle } from "../interfaces/manga.interfaces";
 
 export const mangaViewSelectionData: Record<
@@ -227,5 +231,164 @@ export const popularData: PopularManga[] = [
     id: "0ba5e441-ca41-4a30-94a4-bc8a9fb67f36",
     tags: ["Romance", "Comedy", "Web Comic", "Slice of Life"],
     title: "Imouto Dekiaichuu",
+  },
+];
+
+export const mangaChapters: MangaChapter[] = [
+  {
+    id: "1",
+    title: "Three Years Apart",
+    image:
+      "https://mangadex.org/covers/6be9ef87-51cc-4064-b414-630f672b2bc9/0a4a3335-fbd1-4bac-b821-cd9dceaf54d7.jpg.256.jpg",
+    language: "EN",
+    chapters: [
+      {
+        id: "1",
+        title: "Vol.7 Ch.85",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "2",
+        title: "Vol.7 Ch.84",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "3",
+        title: "Vol.7 Ch.83",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "4",
+        title: "Vol.7 Ch.82",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "5",
+        title: "Vol.7 Ch.81",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+    ],
+  },
+  {
+    id: "2",
+    title: "Three Years Apart",
+    image:
+      "https://mangadex.org/covers/6be9ef87-51cc-4064-b414-630f672b2bc9/0a4a3335-fbd1-4bac-b821-cd9dceaf54d7.jpg.256.jpg",
+    language: "EN",
+    chapters: [
+      {
+        id: "1",
+        title: "Vol.7 Ch.85",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "2",
+        title: "Vol.7 Ch.84",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "3",
+        title: "Vol.7 Ch.83",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+    ],
+  },
+  {
+    id: "3",
+    title: "Three Years Apart",
+    image:
+      "https://mangadex.org/covers/6be9ef87-51cc-4064-b414-630f672b2bc9/0a4a3335-fbd1-4bac-b821-cd9dceaf54d7.jpg.256.jpg",
+    language: "EN",
+    chapters: [
+      {
+        id: "1",
+        title: "Vol.7 Ch.85",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "2",
+        title: "Vol.7 Ch.84",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "3",
+        title: "Vol.7 Ch.83",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "4",
+        title: "Vol.7 Ch.82",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "5",
+        title: "Vol.7 Ch.81",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+    ],
+  },
+  {
+    id: "4",
+    title: "Three Years Apart",
+    image:
+      "https://mangadex.org/covers/6be9ef87-51cc-4064-b414-630f672b2bc9/0a4a3335-fbd1-4bac-b821-cd9dceaf54d7.jpg.256.jpg",
+    language: "EN",
+    chapters: [
+      {
+        id: "1",
+        title: "Vol.7 Ch.85",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+      {
+        id: "2",
+        title: "Vol.7 Ch.84",
+        group: "Fe Scans",
+        language: "EN",
+        uploader: "ScarecrowB",
+        uploadTime: new Date("2022-10-17T03:24:00"),
+      },
+    ],
   },
 ];

@@ -29,7 +29,7 @@ module.exports = {
       },
       secondary: {
         DEFAULT: "rgb(var(--color-neutral-400) / <alpha-value>)",
-        dark: "rgb(var(--color-neutral-500) / <alpha-value>)",
+        dark: "rgb(var(--color-neutral-300) / <alpha-value>)",
       },
       shade: {
         light: "rgb(var(--color-neutral-300) / <alpha-value>)",

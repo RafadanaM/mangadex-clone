@@ -1,5 +1,5 @@
 import { Language } from "@Common/types/common.types";
-import { LatestManga } from "../interfaces/manga.interfaces";
+import { LatestManga, MangaTitle } from "../interfaces/manga.interfaces";
 
 export const MangaViewSelectionType = {
   grid: "grid",
@@ -27,6 +27,22 @@ export type PopularManga = {
   cover: string;
   tags: string[];
   authors: string[];
+};
+
+export type MangaChapter = Pick<
+  MangaTitle,
+  "language" | "id" | "title" | "image"
+> & {
+  chapters: Chapter[];
+};
+
+export type Chapter = {
+  id: string;
+  title: string;
+  uploadTime: Date;
+  group: string;
+  uploader: string;
+  language: Language;
 };
 
 export type MangaStatus =

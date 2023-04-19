@@ -1,15 +1,25 @@
 import styles from "./ChapterGrid.module.css";
 import Flag from "@Common/components/icons/Flag";
 import Icon from "@Common/components/icons/Icon";
+import { Language } from "@Common/types/common.types";
 import EyeIcon from "@Images/icon/eye.svg";
+import Link from "next/link";
 
-const ChapterTitle = () => {
+interface IChapterTitle {
+  id: string;
+  title: string;
+  language: Language;
+}
+
+const ChapterTitle = ({ id, title, language }: IChapterTitle) => {
   return (
-    <div className={`${styles.title} flex items-center gap-1.5`}>
-      <Icon icon={EyeIcon} className="icon-small" />
-      <Flag language="BR" />
-      <span className="font-bold line-clamp-1">Vol. 1 Ch. 25.1 - Extra</span>
-    </div>
+    <Link title={title} href={`/chapters/${id}`}>
+      <a className={`${styles.title} flex items-center gap-1.5`}>
+        <Icon icon={EyeIcon} className="icon-small" />
+        <Flag language={language} />
+        <span className="font-bold line-clamp-1">{title}</span>
+      </a>
+    </Link>
   );
 };
 

@@ -48,5 +48,6 @@
 @media (min-width: theme(screens.md)) {
   .withCover {
     grid-template-columns: 140px minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
   }
 }

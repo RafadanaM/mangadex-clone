@@ -1,8 +1,8 @@
 import { SidebarContent } from "../interfaces/common.interfaces";
 
 const followsData: SidebarContent[] = [
-  { path: "/updates", title: "Updates" },
-  { path: "/library", title: "Library" },
+  { path: "/titles/feed", title: "Updates" },
+  { path: "/titles/follows", title: "Library" },
   { path: "/mdlists", title: "MDLists" },
   { path: "/followed-groups", title: "Followed Groups" },
   { path: "/reading-history", title: "Reading History" },
@@ -10,7 +10,7 @@ const followsData: SidebarContent[] = [
 
 const titlesData: SidebarContent[] = [
   { path: "/titles", title: "Advanced Search" },
-  { path: "/recent", title: "Recently Added" },
+  { path: "/titles/recent", title: "Recently Added" },
   { path: "/latest-updates", title: "Latest Updates" },
   { path: "/random", title: "Random" },
 ];

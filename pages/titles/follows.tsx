@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import Container from "@Common/components/layout/Container";
 import Section from "@Common/components/layout/Section";
 import Tab from "@Common/components/tab/Tab";
@@ -7,10 +9,8 @@ import { librayTabData } from "@Manga/data/library.data";
 import { mangaTitles } from "@Manga/data/manga.data";
 import { MangaTitle } from "@Manga/interfaces/manga.interfaces";
 import { MangaViewSelectionType } from "@Manga/types/manga.types";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 
-const Library = () => {
+const Follows = () => {
   const { query } = useRouter();
   const [data, setData] = useState<MangaTitle[]>([]);
   const [selectedView, setSelectedView] =
@@ -69,4 +69,4 @@ const Library = () => {
   );
 };
 
-export default Library;
+export default Follows;

@@ -7,7 +7,7 @@ import { mangaChapters } from "@Manga/data/manga.data";
 import { MangaChapter, MangaViewSelectionType } from "@Manga/types/manga.types";
 import ChaptersCard from "@Manga/components/cards/chapterCards/ChaptersCard";
 
-const Updates = ({
+const Feed = ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const [selectedView, setSelectedView] =
@@ -45,4 +45,4 @@ export const getServerSideProps: GetServerSideProps<{
   };
 };
 
-export default Updates;
+export default Feed;

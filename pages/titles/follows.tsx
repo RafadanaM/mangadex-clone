@@ -17,7 +17,10 @@ const Follows = () => {
     useState<MangaViewSelectionType>("list");
 
   useEffect(() => {
-    if (typeof query.tab === "string" && query.tab !== "dropped") {
+    if (
+      query.tab === undefined ||
+      (typeof query.tab === "string" && query.tab !== "dropped")
+    ) {
       setData(mangaTitles);
     } else {
       setData([]);

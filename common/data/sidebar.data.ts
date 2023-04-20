@@ -5,7 +5,7 @@ const followsData: SidebarContent[] = [
   { path: "/titles/follows", title: "Library" },
   { path: "/mdlists", title: "MDLists" },
   { path: "/followed-groups", title: "Followed Groups" },
-  { path: "/reading-history", title: "Reading History" },
+  { path: "/my/history", title: "Reading History" },
 ];
 
 const titlesData: SidebarContent[] = [

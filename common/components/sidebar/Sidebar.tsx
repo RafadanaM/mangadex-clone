@@ -24,10 +24,6 @@ interface ISidebar {
 const Sidebar = ({ updateOpen, isOpen }: ISidebar) => {
   const { pathname } = useRouter();
 
-  const closeSidebar = () => {
-    updateOpen(false);
-  };
-
   return (
     <>
       <Overlay
@@ -58,35 +54,30 @@ const Sidebar = ({ updateOpen, isOpen }: ISidebar) => {
               title="Home"
               path="/"
               Icon={HomeIcon}
-              closeSidebar={closeSidebar}
             />
             <SidebarItem
               currPath={pathname}
               title="Follows"
               Icon={BookmarkIcon}
               contents={followsData}
-              closeSidebar={closeSidebar}
             />
             <SidebarItem
               currPath={pathname}
               title="Titles"
               Icon={BookIcon}
               contents={titlesData}
-              closeSidebar={closeSidebar}
             />
             <SidebarItem
               currPath={pathname}
               title="Community"
               Icon={UsersIcon}
               contents={communityData}
-              closeSidebar={closeSidebar}
             />
             <SidebarItem
               currPath={pathname}
               title="MangaDex"
               Icon={PinIcon}
               contents={mangadexData}
-              closeSidebar={closeSidebar}
             />
           </ul>
         </div>

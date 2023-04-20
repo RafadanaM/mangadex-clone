@@ -7,7 +7,6 @@ interface ISidebarItem {
   path?: string;
   currPath: string;
   contents?: SidebarContent[];
-  closeSidebar?: () => void;
 }
 
 const SidebarItem = ({
@@ -16,7 +15,6 @@ const SidebarItem = ({
   path,
   currPath,
   contents = [],
-  closeSidebar,
 }: ISidebarItem) => {
   const renderContents = () => {
     return contents.map(({ path, title }) => (
@@ -26,7 +24,6 @@ const SidebarItem = ({
         title={title}
         currPath={currPath}
         type="sub"
-        closeSidebar={closeSidebar}
       />
     ));
   };
@@ -38,7 +35,6 @@ const SidebarItem = ({
         title={title}
         Icon={Icon}
         currPath={currPath}
-        closeSidebar={closeSidebar}
       />
 
       <ul>{renderContents()}</ul>

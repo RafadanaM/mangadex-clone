@@ -7,7 +7,6 @@ interface ISidebarItemContent {
   currPath: string;
   Icon?: any;
   type?: SidebarItemContentType;
-  closeSidebar?: () => void;
 }
 
 const SidebarItemContent = ({
@@ -16,7 +15,6 @@ const SidebarItemContent = ({
   Icon,
   type = "main",
   currPath,
-  closeSidebar,
 }: ISidebarItemContent) => {
   const style = path
     ? path === currPath
@@ -38,9 +36,7 @@ const SidebarItemContent = ({
   const renderWrapper = () =>
     path ? (
       <Link href={path}>
-        <a className="flex flex-shrink-0 items-center" onClick={closeSidebar}>
-          {renderContent()}
-        </a>
+        <a className="flex flex-shrink-0 items-center">{renderContent()}</a>
       </Link>
     ) : (
       <div className="flex flex-shrink-0 items-center">{renderContent()}</div>

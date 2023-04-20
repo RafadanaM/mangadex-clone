@@ -11,7 +11,7 @@ const followsData: SidebarContent[] = [
 const titlesData: SidebarContent[] = [
   { path: "/titles", title: "Advanced Search" },
   { path: "/titles/recent", title: "Recently Added" },
-  { path: "/latest-updates", title: "Latest Updates" },
+  { path: "/titles/latest", title: "Latest Updates" },
   { path: "/random", title: "Random" },
 ];
 

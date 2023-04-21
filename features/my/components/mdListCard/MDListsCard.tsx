@@ -6,7 +6,7 @@ import Avatar from "@Common/components/icons/Avatar";
 
 const MDListsCard = () => {
   return (
-    <BaseCard className="p-4" overflowHidden={false}>
+    <BaseCard overflowHidden={false} className="p-4 mb-4 last:mb-0">
       <div className="flex items justify-between">
         <span className="text-lg font-bold">Title</span>
         <MoreButton />

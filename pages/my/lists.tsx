@@ -17,7 +17,7 @@ const Lists = () => {
           <MDListsCard isPrivate={false} />
           <MDListsCard isPrivate />
         </TabItem>
-        <TabItem id="followed-mdlists" defaultTab></TabItem>
+        <TabItem id="followed-mdlists"></TabItem>
       </Section>
     </Container>
   );

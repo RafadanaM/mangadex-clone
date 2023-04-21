@@ -20,6 +20,7 @@
       "@Common/*": ["./common/*"],
       "@Manga/*": ["./features/manga/*"],
       "@MangaDetail/*": ["./features/mangaDetail/*"],
+      "@My/*": ["./features/my/*"],
       "@Styles/*": ["./styles/*"],
   
     

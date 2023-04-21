@@ -3,8 +3,8 @@ import Container from "@Common/components/layout/Container";
 import Section from "@Common/components/layout/Section";
 import Tab from "@Common/components/tab/Tab";
 import TabItem from "@Common/components/tab/TabItem";
-import MDListsCard from "features/my/components/mdListCard/MDListsCard";
-import { mdListsTabs } from "features/my/data/lists.data";
+import MDListsCard from "@My/components/mdListCard/MDListsCard";
+import { mdListsTabs } from "@My/data/lists.data";
 
 const Lists = () => {
   return (

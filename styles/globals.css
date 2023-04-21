@@ -74,9 +74,20 @@
   li {
     list-style-type: none;
   }
+
+  @media (min-width: theme(screens.sm)) {
+    *::-webkit-scrollbar {
+      width: 5px;
+      height: 10px;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: rgb(var(--color-neutral-500));
+    }
+  }
 }
 
-@layer components {
+@layer utilities {
   /* For Webkit-based browsers (Chrome, Safari and Opera) */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
@@ -88,10 +99,6 @@
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */
-  }
-
-  .bullets {
-    @apply -bottom-20 mx-auto;
   }
 
   .icon {
@@ -112,6 +119,12 @@
 
   .icon-link {
     @apply w-10 h-10;
+  }
+}
+
+@layer components {
+  .bullets {
+    @apply -bottom-20 mx-auto;
   }
 
   .section-banner {

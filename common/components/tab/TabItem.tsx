@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 export interface ITabItem {
   id: string;
   defaultTab?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const TabItem = ({ children, id, defaultTab = false }: ITabItem) => {

@@ -4,12 +4,18 @@ interface IBaseCard {
   className?: string;
   rounded?: boolean;
   children?: ReactNode;
+  overflowHidden?: boolean;
 }
 
-const BaseCard = ({ className = "", children, rounded = true }: IBaseCard) => {
+const BaseCard = ({
+  className = "",
+  children,
+  rounded = true,
+  overflowHidden = true,
+}: IBaseCard) => {
   return (
     <div
-      className={`bg-secondary overflow-hidden ${
+      className={`bg-secondary ${overflowHidden ? "overflow-hidden" : ""} ${
         rounded ? "rounded" : ""
       } ${className}`}
     >

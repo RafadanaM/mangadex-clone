@@ -1,6 +1,6 @@
 import { MouseEventHandler } from "react";
-import IconButton from "./IconButton";
 import PlusIcon from "@Images/icon/plus.svg";
+import IconButton from "@Common/components/button/IconButton";
 
 interface INewButton {
   text: string;

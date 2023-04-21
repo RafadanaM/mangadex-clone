@@ -1,9 +1,10 @@
-import { RefObject, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-const useOutsideClick = (
-  ref: RefObject<HTMLElement>,
+const useOutsideClick = <T extends HTMLElement>(
   onClickOutside?: () => void
 ) => {
+  const ref = useRef<T>(null);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       // Check if ref element exist, check if ref target is HTMLElement, check if the clicked element does not contain the ref element
@@ -22,6 +23,8 @@ const useOutsideClick = (
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [ref, onClickOutside]);
+
+  return ref;
 };
 
 export default useOutsideClick;

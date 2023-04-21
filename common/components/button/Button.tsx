@@ -31,7 +31,7 @@ const Button = ({
     : "rounded before:rounded";
 
   const hoverAnimation = hover
-    ? "before:transition-opacity before:hover:opacity-10 before:focus:opacity-10"
+    ? "before:transition-opacity before:hover:opacity-10"
     : "";
 
   const beforeItem = `before:content[''] before:absolute before:left-0 before:right-0 before:top-0 before:bottom-0 before:bg-black before:opacity-0 ${hoverAnimation}`;

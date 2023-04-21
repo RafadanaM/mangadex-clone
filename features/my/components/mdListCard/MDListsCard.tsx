@@ -4,7 +4,11 @@ import Link from "next/link";
 import MoreButton from "../buttons/moreButton/MoreButton";
 import Avatar from "@Common/components/icons/Avatar";
 
-const MDListsCard = () => {
+interface IMDListsCard {
+  isPrivate: boolean;
+}
+
+const MDListsCard = ({ isPrivate }: IMDListsCard) => {
   return (
     <BaseCard overflowHidden={false} className="p-4 mb-4 last:mb-0">
       <div className="flex items justify-between">
@@ -12,10 +16,15 @@ const MDListsCard = () => {
         <MoreButton />
       </div>
 
-      <div className="flex items-center">
-        <Avatar width={16} height={16} className="mr-2" />
+      <div className="">
+        <Avatar width={16} height={16} className="mr-2 inline" />
         <span className="text-sm">Username</span>
       </div>
+      {isPrivate ? (
+        <span className="inline-block text-[0.625rem] text-primary font-bold py-0.5 px-1 my-0.5 border border-primary rounded">
+          Private
+        </span>
+      ) : null}
       <div className="flex flex-nowrap gap-2 mt-4 overflow-auto">
         {new Array(20).fill(0).map((_, idx) => (
           <Link key={idx} href="titles/1" passHref>

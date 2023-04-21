@@ -13,9 +13,9 @@ const Lists = () => {
         <Tab tabs={mdListsTabs} className="mt-6" />
         <NewButton text="New Lists" />
         <TabItem id="my-mdlists" defaultTab>
-          <MDListsCard />
-          <MDListsCard />
-          <MDListsCard />
+          <MDListsCard isPrivate />
+          <MDListsCard isPrivate={false} />
+          <MDListsCard isPrivate />
         </TabItem>
         <TabItem id="followed-mdlists" defaultTab></TabItem>
       </Section>

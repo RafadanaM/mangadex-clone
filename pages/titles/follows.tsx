@@ -5,10 +5,10 @@ import Section from "@Common/components/layout/Section";
 import Tab from "@Common/components/tab/Tab";
 import LibraryTabItem from "@Manga/components/libraryTabItem/LibraryTabItem";
 import MangaViewSelect from "@Manga/components/mangaViewSelect/MangaViewSelection";
-import { librayTabData } from "@Manga/data/library.data";
 import { mangaTitles } from "@Manga/data/manga.data";
 import { MangaTitle } from "@Manga/interfaces/manga.interfaces";
 import { MangaViewSelectionType } from "@Manga/types/manga.types";
+import { librayTabData } from "@Common/data/tab.data";
 
 const Follows = () => {
   const { query } = useRouter();

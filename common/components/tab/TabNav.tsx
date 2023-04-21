@@ -18,7 +18,7 @@ const TabNav = forwardRef<HTMLLIElement, ITabNav>(function TabNav(
     <li
       ref={ref}
       className={`px-2 py-1 z-10 transition-colors font-bold flex-shrink-0 ${
-        active ? "text-white" : "text-secondary-dark"
+        active ? "text-white" : "text-shade"
       }`}
     >
       <Link href={{ query: { ...query, tab: id } }} shallow replace>

@@ -3,7 +3,7 @@ import { SidebarContent } from "../interfaces/common.interfaces";
 const followsData: SidebarContent[] = [
   { path: "/titles/feed", title: "Updates" },
   { path: "/titles/follows", title: "Library" },
-  { path: "/mdlists", title: "MDLists" },
+  { path: "/my/lists", title: "MDLists" },
   { path: "/followed-groups", title: "Followed Groups" },
   { path: "/my/history", title: "Reading History" },
 ];

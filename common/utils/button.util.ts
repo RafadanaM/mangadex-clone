@@ -1,4 +1,4 @@
-import { ButtonCollapseBreakPoint } from "../types/common.types";
+import { ButtonCollapseBreakPoint } from "@Common/types/button.type";
 
 export function getButtonCollapseStyle(
   breakpoint: ButtonCollapseBreakPoint | undefined

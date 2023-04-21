@@ -6,9 +6,10 @@ import TabNavs from "./TabNavs";
 interface ITab {
   defaultTab?: string;
   tabs: Map<string, string>;
+  className?: string;
 }
 
-const Tab = ({ defaultTab, tabs }: ITab) => {
+const Tab = ({ defaultTab, tabs, className }: ITab) => {
   const { replace, query, isReady } = useRouter();
   const [selectedTab, setSelectedTab] = useState("");
 
@@ -51,7 +52,7 @@ const Tab = ({ defaultTab, tabs }: ITab) => {
   }, [defaultTab, isReady, query, replace, tabs]);
 
   return (
-    <div>
+    <div className={className}>
       <TabNavs tabs={tabs} selectedTab={selectedTab} defaultTab={defaultTab} />
     </div>
   );

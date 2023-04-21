@@ -8,7 +8,7 @@ import MangaViewSelect from "@Manga/components/mangaViewSelect/MangaViewSelectio
 import { mangaTitles } from "@Manga/data/manga.data";
 import { MangaTitle } from "@Manga/interfaces/manga.interfaces";
 import { MangaViewSelectionType } from "@Manga/types/manga.types";
-import { librayTabData } from "@Common/data/tab.data";
+import { librayTabs } from "@Manga/data/library.data";
 
 const Follows = () => {
   const { query } = useRouter();
@@ -40,7 +40,7 @@ const Follows = () => {
   return (
     <Container>
       <Section title="Library" hasBack>
-        <Tab tabs={librayTabData} />
+        <Tab tabs={librayTabs} />
         <div className="flex items-center justify-between my-4">
           <span className="text-lg">{formatTitle(data.length)}</span>
           <MangaViewSelect onSelectedChange={handleSelectedViewChange} />

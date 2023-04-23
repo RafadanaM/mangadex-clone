@@ -15,7 +15,7 @@ const Avatar = ({ width, height, fill, className }: IAvatar) => {
       width={width}
       height={height}
       fill={fill}
-      className={`rounded-full ${className}`}
+      className={`rounded-full z-10 ${className}`}
     />
   );
 };

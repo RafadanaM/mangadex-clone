@@ -31,5 +31,10 @@ export const userNames: string[] = [
   "-3-",
   "-420princesx-",
   "312bac",
-  "Lindaine",
+];
+
+export const sortItems: string[] = [
+  "Best Match",
+  "Username Acending",
+  "Username Descending",
 ];

@@ -27,7 +27,7 @@ const Dropdown = ({ title, items, defaultItem, onItemChange }: IDropdown) => {
 
   return (
     <div
-      className="group relative min-w-[300px] select-none "
+      className="group relative min-w-[300px] select-none"
       tabIndex={0}
       onBlur={() => setIsOpen(false)}
     >
@@ -47,7 +47,7 @@ const Dropdown = ({ title, items, defaultItem, onItemChange }: IDropdown) => {
       </div>
 
       <div
-        className={`absolute top-full bg-secondary w-full z-10 ${
+        className={`absolute top-full bg-secondary w-full z-20 shadow-main ${
           !isOpen ? "hidden" : ""
         }`}
       >

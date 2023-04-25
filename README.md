@@ -1,14 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### About
 
-## Getting Started
+Mangadex clone to learn and practice UI and other things.
 
-First, run the development server:
+Made with:
+- NextJs
+- TailwindCSS
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Available [HERE](https://mangadex-clone.vercel.app)
 
 ## Things I learned
 

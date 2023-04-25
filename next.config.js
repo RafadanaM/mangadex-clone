@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["mangadex.org"],
+    domains: ["mangadex.org", "www.google.com"],
   },
   webpack(config) {
     config.module.rules.push({

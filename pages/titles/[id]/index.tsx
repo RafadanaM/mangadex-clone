@@ -6,9 +6,13 @@ import Tags from "@MangaDetail/components/tags/Tags";
 import Stats from "@Manga/components/stats/Stats";
 import Banner from "@MangaDetail/components/banner/Banner";
 import Tab from "@Common/components/tab/Tab";
-import { mangaDetailTabs } from "@MangaDetail/data/mangaDetail.data";
+import {
+  alternativeTitles,
+  mangaDetailTabs,
+} from "@MangaDetail/data/mangaDetail.data";
 import TabItem from "@Common/components/tab/TabItem";
 import MangaInfo from "@MangaDetail/components/mangaInfo/MangaInfo";
+import AlternativeTitles from "@MangaDetail/components/alternativeTitles/AlternativeTitles";
 
 const MangaDetail = () => {
   return (
@@ -82,6 +86,8 @@ const MangaDetail = () => {
                   title="Track"
                   infos={["MangaUpdates", "Kitsu", "MyAnimeList"]}
                 />
+
+                <AlternativeTitles titles={alternativeTitles} />
               </div>
             </div>
           </TabItem>

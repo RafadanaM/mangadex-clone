@@ -12,7 +12,7 @@ const Container = ({
 }: IContainer) => {
   return (
     <div
-      className={`w-full ${
+      className={`w-full mb-4 ${
         fullWidth ? "" : "max-w-md-mw mx-auto px-4"
       } ${className}`}
     >

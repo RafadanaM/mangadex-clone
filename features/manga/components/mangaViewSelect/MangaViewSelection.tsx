@@ -39,10 +39,10 @@ const MangaViewSelect = ({
     };
 
   return (
-    <div className="flex relative items-center bg-secondary rounded-sm ml-auto">
+    <div className="flex relative items-center h-11 bg-secondary rounded-sm ml-auto">
       <div
-        className="absolute bg-black w-12 h-12 rounded-sm transition-[left]"
-        style={{ left: selectedViewTypes.indexOf(selectedItem) * 48 }}
+        className="absolute bg-black w-11 h-full rounded-sm transition-[left]"
+        style={{ left: selectedViewTypes.indexOf(selectedItem) * 2.75 + "rem" }}
       />
       {Object.entries(filteredObject).map(([k, v]) => (
         <IconButton
@@ -50,7 +50,7 @@ const MangaViewSelect = ({
           theme="light"
           Icon={v.icon}
           round={false}
-          className="w-12 h-12 z-10"
+          className="w-11 h-full z-10"
           buttonType="menu"
           iconClassName={`transition-colors ${
             selectedItem === k ? "text-white" : ""

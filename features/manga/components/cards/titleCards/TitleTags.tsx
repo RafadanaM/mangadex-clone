@@ -12,6 +12,8 @@ const TitleTags = forwardRef<HTMLDivElement | null, ITitleTags>(
     const [isOpen, setIsOpen] = useState(false);
 
     function handleClickShowMore() {
+      console.log("asd");
+
       setIsOpen(true);
     }
 
@@ -19,9 +21,13 @@ const TitleTags = forwardRef<HTMLDivElement | null, ITitleTags>(
       <div
         ref={ref}
         // setting max height is important to determine when to add MORE button and hide the wrapped elements(how rows that we want), on smaller screen we add 0.25rem to consider gap-1 which is 0.25rem
-        className={`flex overflow-y-hidden max-h-[calc(2em_+_0.25rem)] sm:max-h-[1em] flex-wrap gap-1
+        className={`flex overflow-y-hidden flex-wrap gap-1
       ${showMore ? "relative pr-9 " : ""}
-      ${!isOpen ? "overflow-y-hidden" : ""}
+      ${
+        !isOpen
+          ? "overflow-y-hidden max-h-[calc(2em_+_0.25rem)] sm:max-h-[1em]"
+          : ""
+      }
       ${className}`}
       >
         {tags.map((tag, idx) => (
@@ -31,7 +37,7 @@ const TitleTags = forwardRef<HTMLDivElement | null, ITitleTags>(
         <button
           onClick={handleClickShowMore}
           className={`absolute bottom-0 right-1 text-xs font-bold text-primary ${
-            !showMore ? "hidden" : ""
+            !showMore || isOpen ? "hidden" : ""
           }`}
         >
           MORE

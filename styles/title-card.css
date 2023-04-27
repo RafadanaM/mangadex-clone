@@ -120,7 +120,8 @@
     }
 
     .dense .author,
-    .dense .status {
+    .dense .status,
+    .normal .status {
       display: none;
     }
   }

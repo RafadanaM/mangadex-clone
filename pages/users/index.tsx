@@ -9,11 +9,11 @@ const Users = () => {
   return (
     <Container>
       <Section title="Search Users" hasBack>
-        <Search className="my-6" />
-        <div className="w-[300px] mb-6">
+        <Search className="sm:mt-6" />
+        <div className="my-4 sm:my-6">
           <Dropdown title="Sort By" items={sortItems} />
         </div>
-        <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-1 sm:gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {userNames.map((groupName) => (
             <NameCard key={groupName} name={groupName} role="Member" />
           ))}

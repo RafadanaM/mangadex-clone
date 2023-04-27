@@ -17,7 +17,7 @@ const TitleCards = ({ data, selectedView }: ITitleCards) => {
   }
   return (
     <div
-      className={`grid gap-2 mt-6 ${
+      className={`grid gap-2 ${
         selectedView === "twoCol"
           ? "md:grid-cols-2"
           : selectedView === "grid"

@@ -11,7 +11,7 @@ const Groups = () => {
   return (
     <Container>
       <Section title="My MDLists" hasBack>
-        <Tab tabs={groupsTabs} className="mt-6" />
+        <Tab tabs={groupsTabs} className="sm:mt-6" />
         <NewButton text="New Group" />
         <TabItem id="followed" defaultTab>
           <GroupCard />

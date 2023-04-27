@@ -10,7 +10,7 @@ const Lists = () => {
   return (
     <Container>
       <Section title="My MDLists" hasBack>
-        <Tab tabs={mdListsTabs} className="mt-6" />
+        <Tab tabs={mdListsTabs} className="sm:mt-6" />
         <NewButton text="New Lists" />
         <TabItem id="my-mdlists" defaultTab>
           <MDListsCard isPrivate />

@@ -21,7 +21,7 @@ const Feed = ({
   return (
     <Container>
       <Section title="Updates" hasBack>
-        <div className="flex mt-6 mb-4">
+        <div className="flex sm:mt-6 mb-4">
           <MangaViewSelect
             onSelectedChange={handleSelectedChange}
             viewTypes={["list", "twoCol"]}

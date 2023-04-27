@@ -21,7 +21,7 @@ const Recent = ({
   return (
     <Container>
       <Section title="Recently Added" hasBack>
-        <div className="inline-flex justify-end w-full mt-6 mb-2">
+        <div className="inline-flex justify-end w-full sm:mt-6 mb-4">
           <MangaViewSelect onSelectedChange={handleSelectedViewChage} />
         </div>
         <TitleCards data={data} selectedView={selectedView} />

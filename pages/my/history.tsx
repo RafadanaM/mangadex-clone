@@ -21,11 +21,11 @@ const History = ({
   return (
     <Container>
       <Section title="Reading History" hasBack>
-        <div className="bg-secondary py-4 text-sm text-center rounded">
+        <div className="bg-secondary p-4 text-sm text-center rounded">
           Reading history is currently only tracked on your device, and will be
           lost if you log out or clear site data.
         </div>
-        <div className="flex mt-6 mb-4">
+        <div className="flex my-4 sm:mt-6 sm:mb-4">
           <MangaViewSelect
             onSelectedChange={handleSelectedChange}
             viewTypes={["list", "twoCol"]}

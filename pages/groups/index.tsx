@@ -8,8 +8,8 @@ const Groups = () => {
   return (
     <Container>
       <Section title="Search Groups" hasBack>
-        <Search className="my-6" />
-        <div className="grid gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <Search className="mb-4 sm:my-6" />
+        <div className="grid gap-1 sm:gap-2 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {groupNames.map((groupName) => (
             <NameCard key={groupName} name={groupName} />
           ))}

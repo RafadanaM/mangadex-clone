@@ -21,7 +21,7 @@ const Latest = ({
   return (
     <Container>
       <Section title="Latest Updates" hasBack>
-        <div className="flex mt-6 mb-4">
+        <div className="flex sm:mt-6 mb-4">
           <MangaViewSelect
             onSelectedChange={handleSelectedChange}
             viewTypes={["list", "twoCol"]}

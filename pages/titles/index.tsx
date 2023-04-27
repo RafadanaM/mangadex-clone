@@ -33,7 +33,7 @@ const Titles = ({
   return (
     <Container>
       <Section hasBack title="Advanced Search">
-        <div className="flex items-center mt-6">
+        <div className="flex items-center sm:mt-6">
           <Search />
           <IconButton
             theme="transparent"
@@ -46,7 +46,7 @@ const Titles = ({
             onClick={() => setOpen(true)}
           />
         </div>
-        <div className="flex mt-6 gap-4">
+        <div className="flex my-4 sm:mt-6 gap-4">
           <Dropdown title="Sort By" items={sortData} />
           <MangaViewSelection onSelectedChange={handleSelectedViewChanged} />
         </div>

@@ -48,7 +48,7 @@ const SeasonalCards = ({ data }: ISeasonalCards) => {
           ))
         : null}
 
-      <div className="seasonal-bullets mt-2" />
+      <div className="seasonal-bullets mt-2 hidden sm:block" />
     </Swiper>
   );
 };

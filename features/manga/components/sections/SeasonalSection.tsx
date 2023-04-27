@@ -4,7 +4,7 @@ import SeasonalCards from "../cards/seasonalCards/SeasonalCards";
 
 const SeasonalSection = () => {
   return (
-    <Section title="Seasonal">
+    <Section title="Seasonal" href="/titles/seasonal">
       <SeasonalCards data={seasonalData} />
     </Section>
   );

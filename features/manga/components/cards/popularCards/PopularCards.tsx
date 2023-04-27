@@ -27,7 +27,7 @@ const PopularCards = ({ data }: IPopularCards) => {
       loop
       autoplay
       slidesPerView={1}
-      className="relative -mx-4 sm:mx-0"
+      className="-mx-4 sm:mx-0"
       onSlideChange={(swiper) => {
         setSlideNumber(swiper.realIndex + 1);
       }}
@@ -39,7 +39,7 @@ const PopularCards = ({ data }: IPopularCards) => {
       ))}
       <div
         style={{ color: "#FFFFFF" }}
-        className="paginate-count absolute bottom-2.5 right-0 left-0 mx-auto z-10 max-w-[2.75rem] px-2 py-0.5 rounded-full text-white text-xs bg-black opacity-60 sm:hidden"
+        className="paginate-count absolute bottom-2.5 right-0 left-0 mx-auto z-10 max-w-[3rem] px-2 py-0.5 rounded-full text-white text-xs bg-black opacity-60 text-center sm:hidden"
       />
       <span className="hidden md:inline absolute bottom-[1.125rem] right-32 z-10 text-sm font-semibold">
         NO. {slideNumber}

@@ -32,7 +32,7 @@ const RecentCards = ({ data }: IRecentCards) => {
         </SwiperSlide>
       ))}
 
-      <div className="recent-bullets mt-2 mx-auto" />
+      <div className="recent-bullets mt-2 mx-auto hidden sm:block" />
     </Swiper>
   );
 };

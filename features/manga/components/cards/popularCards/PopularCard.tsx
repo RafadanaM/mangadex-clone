@@ -19,13 +19,13 @@ const PopularCard = ({ data }: IPopularCard) => {
             fill
             className="object-cover blur-sm sm:blur-xl select-none opacity-40 sm:opacity-20"
           />
-          <div className="grid relative h-full mt-16 px-4 sm:p-4 sm:mt-0 gap-x-4 grid-cols-[35%_auto] sm:grid-cols-[minmax(auto,8rem)_1fr] md:grid-cols-[minmax(auto,_11rem)_1fr]">
-            <div className="relative aspect-square sm:aspect-auto">
+          <div className="grid relative h-full mt-12 px-4 sm:p-4 sm:mt-0 gap-x-4 grid-cols-[35%_auto] sm:grid-cols-[minmax(auto,8rem)_1fr] md:grid-cols-[minmax(auto,_11rem)_1fr]">
+            <div className="relative h-48 sm:aspect-auto overflow-hidden rounded shadow-lg">
               <Image
                 src={data.cover}
                 alt="test"
                 fill
-                className="object-cover rounded shadow-lg"
+                className="object-cover"
               />
             </div>
 

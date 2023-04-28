@@ -14,7 +14,7 @@ interface IChapterTitle {
 const ChapterTitle = ({ id, title, language }: IChapterTitle) => {
   return (
     <Link title={title} href={`/chapters/${id}`}>
-      <a className={`${styles.title} flex items-center gap-1.5`}>
+      <a className={`${styles.title} flex items-center gap-1.5 capitalize`}>
         <Icon icon={EyeIcon} className="icon-small" />
         <Flag language={language} />
         <span className="font-bold line-clamp-1">{title}</span>

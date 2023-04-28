@@ -9,7 +9,7 @@ import { MangaChapter, MangaViewSelectionType } from "@Manga/types/manga.types";
 
 interface IChapterCard {
   type: Extract<MangaViewSelectionType, "list" | "twoCol">;
-  size: "default" | "small" | "medium";
+  size: "default" | "small";
   data: MangaChapter;
 }
 

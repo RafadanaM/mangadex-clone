@@ -8,12 +8,12 @@ interface IChapterUploader {
 
 const ChapterUploader = ({ uploader }: IChapterUploader) => {
   return (
-    <div className={`${styles.uploader} line-clamp-1`}>
+    <div className={`${styles.uploader} line-clamp-1 capitalize`}>
       <IconText
         icon={UserIcon}
         text={uploader}
         iconClassName="icon-small"
-        textClassName="font-medium ml-2 text-status-blue"
+        textClassName="ml-1 text-status-blue px-1 rounded hover:bg-shade hover:bg-opacity-60"
       />
     </div>
   );

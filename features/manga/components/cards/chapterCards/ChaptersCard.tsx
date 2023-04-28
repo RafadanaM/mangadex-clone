@@ -8,17 +8,17 @@ interface IChaptersCard {
 }
 
 const ChaptersCard = ({ data, type }: IChaptersCard) => {
-  const [isLoadingSmall, isSmall] = useMediaQuery("(min-width:640px)");
-  const [_, isMedium] = useMediaQuery("(min-width:768px)");
+  const [isSmallLoading, isSmall] = useMediaQuery("(min-width:640px)");
+  // const [isMediunLoading, isMedium] = useMediaQuery("(min-width:768px)");
   return (
     <div>
-      {!isLoadingSmall
+      {!isSmallLoading
         ? data.map((mangaChapter) => (
             <ChapterCard
               key={mangaChapter.id}
               data={mangaChapter}
               type={type}
-              size={isMedium ? "medium" : isSmall ? "small" : "default"}
+              size={isSmall ? "small" : "default"}
             />
           ))
         : null}

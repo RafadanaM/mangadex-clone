@@ -13,6 +13,7 @@ import {
 import TabItem from "@Common/components/tab/TabItem";
 import MangaInfo from "@MangaDetail/components/mangaInfo/MangaInfo";
 import AlternativeTitles from "@MangaDetail/components/alternativeTitles/AlternativeTitles";
+import VolumeCard from "@MangaDetail/components/volumeCard/VolumeCard";
 
 const MangaDetail = () => {
   return (
@@ -88,6 +89,9 @@ const MangaDetail = () => {
                 />
 
                 <AlternativeTitles titles={alternativeTitles} />
+              </div>
+              <div className="w-full">
+                <VolumeCard />
               </div>
             </div>
           </TabItem>

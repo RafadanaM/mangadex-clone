@@ -32,7 +32,7 @@ export const mangaVolumes: MangaVolume[] = [
       203: [
         {
           id: "1",
-          title: "Extra",
+          title: "Ch. 203.5 Extra",
           group: "Wakga",
           language: "EN",
           uploader: "Maxred",
@@ -103,16 +103,6 @@ export const mangaVolumes: MangaVolume[] = [
       200: [
         {
           id: "1",
-          title: "Extra",
-          group: "Wakga",
-          language: "EN",
-          uploader: "Maxred",
-          uploadTime: new Date(),
-        },
-      ],
-      199: [
-        {
-          id: "1",
           title: "The Promised Day",
           group: "Wakga",
           language: "EN",
@@ -137,7 +127,7 @@ export const mangaVolumes: MangaVolume[] = [
         },
       ],
 
-      198: [
+      199: [
         {
           id: "1",
           title: "Farewell",
@@ -161,6 +151,17 @@ export const mangaVolumes: MangaVolume[] = [
           language: "BR",
           uploader: "link",
           uploadTime: new Date("2022-10-17T03:24:00"),
+        },
+      ],
+
+      198: [
+        {
+          id: "1",
+          title: "Something Else",
+          group: "Wakga",
+          language: "EN",
+          uploader: "Maxred",
+          uploadTime: new Date("2022-10-16T03:24:00"),
         },
       ],
     },

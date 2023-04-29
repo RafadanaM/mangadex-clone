@@ -8,9 +8,10 @@ import { useEffect } from "react";
 interface IVolumeCard {
   volume: MangaVolume;
   isAllExpanded: boolean;
+  isAscending: boolean;
 }
 
-const VolumeCard = ({ volume, isAllExpanded }: IVolumeCard) => {
+const VolumeCard = ({ volume, isAllExpanded, isAscending }: IVolumeCard) => {
   const [isChaptersExpanded, toggleChaptersExpand] = useToggle(true);
 
   const [rect, gridRef] = useClientRect();
@@ -37,6 +38,7 @@ const VolumeCard = ({ volume, isAllExpanded }: IVolumeCard) => {
         ref={gridRef}
         height={isChaptersExpanded ? rect?.height : 0}
         chapters={volume.chapters}
+        isAscending={isAscending}
       />
     </div>
   );

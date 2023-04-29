@@ -1,23 +1,33 @@
+import { MouseEventHandler } from "react";
 import Icon from "@Common/components/icons/Icon";
-import useToggle from "@Common/hooks/useToggle";
 import ChevronDownIcon from "@Images/icon/chevron-down.svg";
+import { MangaVolume } from "@MangaDetail/types/mangaVolume.type";
 
-const VolumeHeader = () => {
-  const [isChaptersExpanded, toggleChaptersExpand] = useToggle(true);
+interface IVolumeHeader {
+  onClick: MouseEventHandler<HTMLDivElement>;
+  isExpanded: boolean;
+  volume_info: Omit<MangaVolume, "chapters">;
+  chapterCount: number;
+}
 
+const VolumeHeader = ({
+  onClick,
+  isExpanded,
+  volume_info,
+  chapterCount,
+}: IVolumeHeader) => {
   return (
-    <div
-      onClick={toggleChaptersExpand}
-      className="flex justify-between mb-2 cursor-pointer"
-    >
-      <span>Volume 20</span>
-      <span>Ch. 196 - 202</span>
+    <div onClick={onClick} className="flex justify-between mb-2 cursor-pointer">
+      <span>{volume_info.volume_name}</span>
+      <span>
+        Ch. {volume_info.startChapter} - {volume_info.endChapter}
+      </span>
       <div>
-        22
+        {chapterCount}
         <Icon
           icon={ChevronDownIcon}
           className={`inline transition-transform ${
-            isChaptersExpanded ? "rotate-180" : ""
+            isExpanded ? "rotate-180" : ""
           }`}
         />
       </div>

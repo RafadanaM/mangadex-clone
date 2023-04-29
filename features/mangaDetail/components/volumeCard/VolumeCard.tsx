@@ -1,60 +1,35 @@
-import Icon from "@Common/components/icons/Icon";
+import ChaptersGrids from "./ChaptersGrids";
+import VolumeHeader from "./VolumeHeader";
 import useToggle from "@Common/hooks/useToggle";
-import ChapterGrid from "@Manga/components/cards/chapterCards/components/ChapterGrid";
-import { Chapter } from "@Manga/types/manga.types";
-import ChevronDownIcon from "@Images/icon/chevron-down.svg";
-import EyeIcon from "@Images/icon/eye.svg";
+import useClientRect from "@Common/hooks/useClientRect";
+import { MangaVolume } from "@MangaDetail/types/mangaVolume.type";
 
-const chapter: Chapter = {
-  id: "1",
-  group: "Wakga",
-  language: "EN",
-  title: "The Promised Day",
-  uploader: "Maxred",
-  uploadTime: new Date(),
-};
+interface IVolumeCard {
+  volume: MangaVolume;
+}
 
-const children = [[0], [1, 2, 3], [1]];
-
-const VolumeCard = () => {
+const VolumeCard = ({ volume }: IVolumeCard) => {
   const [isChaptersExpanded, toggleChaptersExpand] = useToggle(true);
 
-  return (
-    <div>
-      <div
-        onClick={toggleChaptersExpand}
-        className="flex justify-between mb-2 cursor-pointer"
-      >
-        <span>Volume 20</span>
-        <span>Ch. 196 - 202</span>
-        <div>
-          22
-          <Icon
-            icon={ChevronDownIcon}
-            className={`inline transition-transform ${
-              isChaptersExpanded ? "rotate-180" : ""
-            }`}
-          />
-        </div>
-      </div>
+  const [rect, gridRef] = useClientRect();
 
-      {children.map((x, idx) => (
-        <div key={idx} className="bg-secondary mb-2 last:mb-0">
-          {x.length > 1 ? (
-            <div className="flex items-center px-2 py-1 cursor-pointer">
-              <Icon icon={EyeIcon} className="h-5 w-5" />
-              <span className="ml-2.5 text-xs font-bold">Chapter 202</span>
-              <Icon
-                icon={ChevronDownIcon}
-                className="inline-block w-5 h-5 ml-auto"
-              />
-            </div>
-          ) : null}
-          {x.map((_, idy) => (
-            <ChapterGrid key={idy} size="small" chapterLine chapter={chapter} />
-          ))}
-        </div>
-      ))}
+  return (
+    <div className="mb-6 last:mb-0">
+      <VolumeHeader
+        volume_info={volume}
+        chapterCount={Object.values(volume.chapters).reduce(
+          (acc, curr) => acc + curr.length,
+          0
+        )}
+        isExpanded={isChaptersExpanded}
+        onClick={toggleChaptersExpand}
+      />
+
+      <ChaptersGrids
+        ref={gridRef}
+        height={isChaptersExpanded ? rect?.height : 0}
+        chapters={volume.chapters}
+      />
     </div>
   );
 };

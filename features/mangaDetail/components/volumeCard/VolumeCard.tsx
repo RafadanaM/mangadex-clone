@@ -3,15 +3,23 @@ import VolumeHeader from "./VolumeHeader";
 import useToggle from "@Common/hooks/useToggle";
 import useClientRect from "@Common/hooks/useClientRect";
 import { MangaVolume } from "@MangaDetail/types/mangaVolume.type";
+import { useEffect } from "react";
 
 interface IVolumeCard {
   volume: MangaVolume;
+  isAllExpanded: boolean;
 }
 
-const VolumeCard = ({ volume }: IVolumeCard) => {
+const VolumeCard = ({ volume, isAllExpanded }: IVolumeCard) => {
   const [isChaptersExpanded, toggleChaptersExpand] = useToggle(true);
 
   const [rect, gridRef] = useClientRect();
+
+  useEffect(() => {
+    if (isAllExpanded !== isChaptersExpanded) {
+      toggleChaptersExpand();
+    }
+  }, [isAllExpanded, isChaptersExpanded, toggleChaptersExpand]);
 
   return (
     <div className="mb-6 last:mb-0">

@@ -1,5 +1,4 @@
 import { Chapter } from "@Manga/types/manga.types";
-import { sortChapterDescending } from "@MangaDetail/util/chapters.util";
 import ChaptersGrid from "./ChaptersGrid";
 import { forwardRef } from "react";
 
@@ -16,15 +15,13 @@ const ChaptersGrids = forwardRef<HTMLDivElement, IChaptersGrids>(
         style={{ height }}
         className="transition-[height] overflow-hidden"
       >
-        {Object.entries(chapters)
-          .sort(sortChapterDescending)
-          .map(([chapterNumber, languageChapters]) => (
-            <ChaptersGrid
-              key={chapterNumber}
-              chapterNumber={+chapterNumber}
-              chapters={languageChapters}
-            />
-          ))}
+        {Object.entries(chapters).map(([chapterNumber, languageChapters]) => (
+          <ChaptersGrid
+            key={chapterNumber}
+            chapterNumber={+chapterNumber}
+            chapters={languageChapters}
+          />
+        ))}
       </div>
     );
   }

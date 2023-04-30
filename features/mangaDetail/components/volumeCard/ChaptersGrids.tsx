@@ -10,10 +10,14 @@ interface IChaptersGrids {
   chapters: Record<number, Chapter[]>;
   height?: number;
   isAscending: boolean;
+  isAllExpanded: boolean;
 }
 
 const ChaptersGrids = forwardRef<HTMLDivElement, IChaptersGrids>(
-  function ChaptersGrids({ chapters, height, isAscending }, ref) {
+  function ChaptersGrids(
+    { chapters, height, isAscending, isAllExpanded },
+    ref
+  ) {
     return (
       <div
         ref={ref}
@@ -25,6 +29,7 @@ const ChaptersGrids = forwardRef<HTMLDivElement, IChaptersGrids>(
           .map(([chapterNumber, languageChapters]) => (
             <ChaptersGrid
               key={chapterNumber}
+              isAllExpanded={isAllExpanded}
               chapterNumber={+chapterNumber}
               chapters={languageChapters}
             />

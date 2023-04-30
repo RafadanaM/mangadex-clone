@@ -1,20 +1,33 @@
 import Icon from "@Common/components/icons/Icon";
-import useToggle from "@Common/hooks/useToggle";
 import useClientRect from "@Common/hooks/useClientRect";
 import ChapterGrid from "@Manga/components/cards/chapterCards/components/ChapterGrid";
 import { Chapter } from "@Manga/types/manga.types";
 import ChevronDownIcon from "@Images/icon/chevron-down.svg";
 import EyeIcon from "@Images/icon/eye.svg";
+import { useEffect, useState } from "react";
 
 interface IChaptersGrid {
   chapters: Chapter[];
   chapterNumber: number;
+  isAllExpanded: boolean;
 }
 
-const ChaptersGrid = ({ chapters, chapterNumber }: IChaptersGrid) => {
-  const [isChaptersExpanded, toggleChaptersExpanded] = useToggle(true);
+const ChaptersGrid = ({
+  chapters,
+  chapterNumber,
+  isAllExpanded,
+}: IChaptersGrid) => {
+  const [isChaptersExpanded, setChaptersExpanded] = useState(isAllExpanded);
   const [chaptersContainerRect, chaptersContainerRef] = useClientRect();
   const [chapterHeaderRect, chapterHeaderRef] = useClientRect();
+
+  useEffect(() => {
+    setChaptersExpanded(isAllExpanded);
+  }, [isAllExpanded]);
+
+  const toggleChaptersExpanded = () => {
+    setChaptersExpanded((prevState) => !prevState);
+  };
 
   return (
     <div

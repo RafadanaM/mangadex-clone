@@ -1,9 +1,8 @@
 import ChaptersGrids from "./ChaptersGrids";
 import VolumeHeader from "./VolumeHeader";
-import useToggle from "@Common/hooks/useToggle";
 import useClientRect from "@Common/hooks/useClientRect";
 import { MangaVolume } from "@MangaDetail/types/mangaVolume.type";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface IVolumeCard {
   volume: MangaVolume;
@@ -12,15 +11,17 @@ interface IVolumeCard {
 }
 
 const VolumeCard = ({ volume, isAllExpanded, isAscending }: IVolumeCard) => {
-  const [isChaptersExpanded, toggleChaptersExpand] = useToggle(true);
+  const [isVolumeExpanded, setisVolumeExpanded] = useState(isAllExpanded);
+
+  const toggleVolumeExpanded = () => {
+    setisVolumeExpanded((prevState) => !prevState);
+  };
 
   const [rect, gridRef] = useClientRect();
 
   useEffect(() => {
-    if (isAllExpanded !== isChaptersExpanded) {
-      toggleChaptersExpand();
-    }
-  }, [isAllExpanded, isChaptersExpanded, toggleChaptersExpand]);
+    setisVolumeExpanded(isAllExpanded);
+  }, [isAllExpanded]);
 
   return (
     <div className="mb-6 last:mb-0">
@@ -30,14 +31,15 @@ const VolumeCard = ({ volume, isAllExpanded, isAscending }: IVolumeCard) => {
           (acc, curr) => acc + curr.length,
           0
         )}
-        isExpanded={isChaptersExpanded}
-        onClick={toggleChaptersExpand}
+        isExpanded={isVolumeExpanded}
+        onClick={toggleVolumeExpanded}
       />
 
       <ChaptersGrids
         ref={gridRef}
-        height={isChaptersExpanded ? rect?.height : 0}
+        height={isVolumeExpanded ? undefined : 0}
         chapters={volume.chapters}
+        isAllExpanded={isAllExpanded}
         isAscending={isAscending}
       />
     </div>

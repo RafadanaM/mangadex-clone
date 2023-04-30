@@ -11,30 +11,32 @@ interface IChaptersGrids {
   height?: number;
   isAscending: boolean;
   isAllExpanded: boolean;
+  isVolumeExpanded: boolean;
 }
 
 const ChaptersGrids = forwardRef<HTMLDivElement, IChaptersGrids>(
   function ChaptersGrids(
-    { chapters, height, isAscending, isAllExpanded },
+    { chapters, height, isAscending, isAllExpanded, isVolumeExpanded },
     ref
   ) {
     return (
-      <div
-        ref={ref}
-        style={{ height }}
-        className="transition-[height] overflow-hidden"
+      <
+        // ref={ref}
+        // style={{ height }}
+        // className="transition-[height] overflow-hidden"
       >
         {Object.entries(chapters)
           .sort(isAscending ? sortChapterAscending : sortChapterDescending)
           .map(([chapterNumber, languageChapters]) => (
             <ChaptersGrid
               key={chapterNumber}
+              isVolumeExpanded={isVolumeExpanded}
               isAllExpanded={isAllExpanded}
               chapterNumber={+chapterNumber}
               chapters={languageChapters}
             />
           ))}
-      </div>
+      </>
     );
   }
 );

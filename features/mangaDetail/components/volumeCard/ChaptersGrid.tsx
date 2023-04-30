@@ -10,14 +10,16 @@ interface IChaptersGrid {
   chapters: Chapter[];
   chapterNumber: number;
   isAllExpanded: boolean;
+  isVolumeExpanded: boolean;
 }
 
 const ChaptersGrid = ({
   chapters,
   chapterNumber,
   isAllExpanded,
+  isVolumeExpanded,
 }: IChaptersGrid) => {
-  const [isChaptersExpanded, setChaptersExpanded] = useState(isAllExpanded);
+  const [isChaptersExpanded, setChaptersExpanded] = useState(true);
   const [chaptersContainerRect, chaptersContainerRef] = useClientRect();
   const [chapterHeaderRect, chapterHeaderRef] = useClientRect();
 
@@ -33,14 +35,17 @@ const ChaptersGrid = ({
     <div
       ref={chaptersContainerRef}
       style={{
-        height:
-          chapterHeaderRect && chaptersContainerRect
-            ? isChaptersExpanded
-              ? chaptersContainerRect.height
-              : chapterHeaderRect.height
-            : undefined,
+        height: isVolumeExpanded
+          ? isChaptersExpanded
+            ? chaptersContainerRect?.height
+            : chapters.length > 1
+            ? chapterHeaderRect?.height
+            : 0
+          : 0,
       }}
-      className="bg-secondary mb-2 last:mb-0 transition-[height] overflow-hidden"
+      className={`bg-secondary transition-[height] overflow-hidden ${
+        isVolumeExpanded ? " mb-2 last:mb-0" : ""
+      } `}
     >
       {chapters.length > 1 ? (
         <div

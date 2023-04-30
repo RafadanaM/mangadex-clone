@@ -6,16 +6,24 @@ import ChapterViews from "./ChapterViews";
 import ChapterUploader from "./ChapterUploader";
 import ChapterComments from "./ChapterComments";
 import { Chapter } from "@Manga/types/manga.types";
+import { CSSProperties } from "react";
 
 interface IChapterGrid {
   size: "default" | "small";
   chapter: Chapter;
   chapterLine?: boolean;
+  style?: CSSProperties;
 }
 
-const ChapterGrid = ({ size, chapter, chapterLine = false }: IChapterGrid) => {
+const ChapterGrid = ({
+  size,
+  chapter,
+  style,
+  chapterLine = false,
+}: IChapterGrid) => {
   return (
     <div
+      style={style}
       className={`group flex border-l-2 border-l-status-blue border-b border-b-shade-light last:border-b-0 hover:bg-secondary-dark`}
     >
       {chapterLine ? (

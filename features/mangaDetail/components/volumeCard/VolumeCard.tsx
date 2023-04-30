@@ -37,7 +37,8 @@ const VolumeCard = ({ volume, isAllExpanded, isAscending }: IVolumeCard) => {
 
       <ChaptersGrids
         ref={gridRef}
-        height={isVolumeExpanded ? undefined : 0}
+        // height={isVolumeExpanded ? rect?.height : 0}
+        isVolumeExpanded={isVolumeExpanded}
         chapters={volume.chapters}
         isAllExpanded={isAllExpanded}
         isAscending={isAscending}

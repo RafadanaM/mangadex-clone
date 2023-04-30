@@ -34,13 +34,18 @@ const ChaptersGrid = ({
   return (
     <div
       ref={chaptersContainerRef}
+      /*
+      1. if isVolumeExpanded is false set height to 0, otherise
+      2. if n of chapters is at most 1, always show the ChapterGrid (set height to the container height aka only one ChapterGrid, because there's no chapter header in only one chapter), otherwise
+      3. if isChapterExpanded is false return only the header height(hide the ChapterGrids), otherwise show everything
+      */
       style={{
         height: isVolumeExpanded
-          ? isChaptersExpanded
-            ? chaptersContainerRect?.height
-            : chapters.length > 1
-            ? chapterHeaderRect?.height
-            : 0
+          ? chapters.length > 1
+            ? isChaptersExpanded
+              ? chaptersContainerRect?.height
+              : chapterHeaderRect?.height
+            : chaptersContainerRect?.height
           : 0,
       }}
       className={`bg-secondary transition-[height] overflow-hidden ${

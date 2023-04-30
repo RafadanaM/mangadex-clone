@@ -13,7 +13,6 @@ import {
 import TabItem from "@Common/components/tab/TabItem";
 import MangaInfo from "@MangaDetail/components/mangaInfo/MangaInfo";
 import AlternativeTitles from "@MangaDetail/components/alternativeTitles/AlternativeTitles";
-import VolumeCard from "@MangaDetail/components/volumeCard/VolumeCard";
 import VolumeCards from "@MangaDetail/components/volumeCard/VolumeCards";
 
 const MangaDetail = () => {

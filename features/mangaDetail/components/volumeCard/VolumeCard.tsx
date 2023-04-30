@@ -1,8 +1,11 @@
-import ChaptersGrids from "./ChaptersGrids";
-import VolumeHeader from "./VolumeHeader";
-import useClientRect from "@Common/hooks/useClientRect";
-import { MangaVolume } from "@MangaDetail/types/mangaVolume.type";
 import { useEffect, useState } from "react";
+import VolumeHeader from "./VolumeHeader";
+import { MangaVolume } from "@MangaDetail/types/mangaVolume.type";
+import {
+  sortChapterAscending,
+  sortChapterDescending,
+} from "@MangaDetail/util/chapters.util";
+import ChaptersGrid from "./ChaptersGrid";
 
 interface IVolumeCard {
   volume: MangaVolume;
@@ -16,8 +19,6 @@ const VolumeCard = ({ volume, isAllExpanded, isAscending }: IVolumeCard) => {
   const toggleVolumeExpanded = () => {
     setisVolumeExpanded((prevState) => !prevState);
   };
-
-  const [rect, gridRef] = useClientRect();
 
   useEffect(() => {
     setisVolumeExpanded(isAllExpanded);
@@ -35,14 +36,17 @@ const VolumeCard = ({ volume, isAllExpanded, isAscending }: IVolumeCard) => {
         onClick={toggleVolumeExpanded}
       />
 
-      <ChaptersGrids
-        ref={gridRef}
-        // height={isVolumeExpanded ? rect?.height : 0}
-        isVolumeExpanded={isVolumeExpanded}
-        chapters={volume.chapters}
-        isAllExpanded={isAllExpanded}
-        isAscending={isAscending}
-      />
+      {Object.entries(volume.chapters)
+        .sort(isAscending ? sortChapterAscending : sortChapterDescending)
+        .map(([chapterNumber, languageChapters]) => (
+          <ChaptersGrid
+            key={chapterNumber}
+            isVolumeExpanded={isVolumeExpanded}
+            isAllExpanded={isAllExpanded}
+            chapterNumber={+chapterNumber}
+            chapters={languageChapters}
+          />
+        ))}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { Chapter } from "@Manga/types/manga.types";
 import ChevronDownIcon from "@Images/icon/chevron-down.svg";
 import EyeIcon from "@Images/icon/eye.svg";
 import { useEffect, useState } from "react";
+import useMediaQuery from "@Common/hooks/useMediaQuery";
 
 interface IChaptersGrid {
   chapters: Chapter[];
@@ -20,8 +21,13 @@ const ChaptersGrid = ({
   isVolumeExpanded,
 }: IChaptersGrid) => {
   const [isChaptersExpanded, setChaptersExpanded] = useState(true);
-  const [chaptersContainerRect, chaptersContainerRef] = useClientRect();
+  const [isSmallLoading, isSmall] = useMediaQuery("(min-width:640px)");
+  const [chaptersContainerRect, chaptersContainerRef] = useClientRect([
+    isSmall,
+  ]);
   const [chapterHeaderRect, chapterHeaderRef] = useClientRect();
+
+  console.log({ chaptersContainerRect, chapterHeaderRect });
 
   useEffect(() => {
     setChaptersExpanded(isAllExpanded);
@@ -30,6 +36,8 @@ const ChaptersGrid = ({
   const toggleChaptersExpanded = () => {
     setChaptersExpanded((prevState) => !prevState);
   };
+
+  if (isSmallLoading) return null;
 
   return (
     <div
@@ -70,14 +78,15 @@ const ChaptersGrid = ({
           />
         </div>
       ) : null}
-      {chapters.map((chapter) => (
-        <ChapterGrid
-          key={chapter.id}
-          size="small"
-          chapterLine
-          chapter={chapter}
-        />
-      ))}
+      {!isSmallLoading &&
+        chapters.map((chapter) => (
+          <ChapterGrid
+            key={chapter.id}
+            size={isSmall ? "small" : "default"}
+            chapterLine
+            chapter={chapter}
+          />
+        ))}
     </div>
   );
 };

@@ -9,7 +9,6 @@ interface IChaptersCard {
 
 const ChaptersCard = ({ data, type }: IChaptersCard) => {
   const [isSmallLoading, isSmall] = useMediaQuery("(min-width:640px)");
-  // const [isMediunLoading, isMedium] = useMediaQuery("(min-width:768px)");
   return (
     <div>
       {!isSmallLoading

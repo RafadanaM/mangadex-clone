@@ -100,7 +100,7 @@ export const popularData: PopularManga[] = [
   {
     authors: ["Oomi Suzu"],
     cover:
-      "https://mangadex.org/covers/b05825a3-9d8e-45bc-a45a-1fe065186b83/b76b81b3-29a1-405d-8e2a-0bb25131a41e.jpg.256.jpg",
+      "https://mangadex.org/covers/99af94f5-04c2-424b-8438-0c8386b0ec5f/87084ccd-2461-4eb1-87c1-ded8577850c8.jpg.256.jpg",
     description:
       "Hakobe Narumi is an expressionless high schooler known as Stoney. The highlight of his unnoticeable existence is following posts from the popular selfie poster &quot;Efa&quot; on social media. But it turns out &quot;Efa&quot; is his studious and popular classmate Mitsuha Koto?! The slightly erotic, adolescent, selfie, romantic comedy between an Iron Walled Selfie girl and a stone-faced boy begins!",
     id: "b05825a3-9d8e-45bc-a45a-1fe065186b83",
